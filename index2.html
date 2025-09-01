@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>АН ФАТТОРИЯ - Агентство недвижимости</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Объединенные стили для index2 -->
+  <link rel="stylesheet" href="css/index2-combined.css">
+</head>
+<body>
+
+<!-- Шапка -->
+<header id="main">
+  <h1 data-aos="fade-down">АН ФАТТОРИЯ</h1>
+
+  <!-- Форма обратной связи (верхняя) -->
+  <form class="row g-2 justify-content-center mt-3 w-75" id="feedbackFormTop">
+    <div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="Имя" required></div>
+    <div class="col-md-3"><input type="text" class="form-control" name="phone" placeholder="Телефон" required></div>
+    <div class="col-md-4"><input type="text" class="form-control" name="request" placeholder="Что вы ищете?" required></div>
+    <div class="col-md-2"><button type="submit" class="btn btn-warning w-100">Отправить</button></div>
+  </form>
+</header>
+
+<!-- Блок с большим выбором объектов -->
+<section class="big-choice">
+  <div class="container big-choice-content">
+    <h2 data-aos="fade-down">Большой выбор объектов недвижимости</h2>
+    <p class="lead" data-aos="fade-up" data-aos-delay="200">Мы предлагаем лучшие варианты квартир, домов и коммерческой недвижимости в вашем городе</p>
+    
+    <div class="row mt-4">
+      <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="category-square">
+          <img src="https://images.unsplash.com/photo-1560449752-315d17c5b9bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" alt="Новостройки">
+          <div class="category-content">
+            <h4>Новостройки</h4>
+            <p>Современные жилые комплексы с отделкой</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="category-square">
+          <img src="https://images.unsplash.com/photo-1565623833363-9b4ac5643eb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" alt="Наши объекты">
+          <div class="category-content">
+            <h4>Наши объекты</h4>
+            <p>Лучшие предложения от нашего агентства</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="category-square">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" alt="Коммерческая недвижимость">
+          <div class="category-content">
+            <h4>Коммерческая</h4>
+            <p>Помещения для бизнеса и инвестиций</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="category-square">
+          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" alt="Загородная недвижимость">
+          <div class="category-content">
+            <h4>Загородная</h4>
+            <p>Дома, коттеджи и участки за городом</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Блок 10 фактов -->
+<section class="facts" id="facts">
+  <div class="container">
+    <h2 data-aos="fade-up">10 главных фактов о компании</h2>
+    <div class="facts-list">
+      <div class="fact" data-aos="fade-up" data-aos-delay="0">
+        <div class="fact-header">
+          <span>1. Специалисты компании прошли государственную аттестацию</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Все сотрудники имеют подтверждённую квалификацию в сфере недвижимости и права.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="100">
+        <div class="fact-header">
+          <span>2. Широкий спектр услуг в сфере недвижимости</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Мы предоставляем услуги по покупке, продаже, аренде и юридическому сопровождению сделок.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="200">
+        <div class="fact-header">
+          <span>3. Офис в центре Минска рядом с метро</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Удобное расположение офиса позволяет клиентам легко добраться к нам.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="300">
+        <div class="fact-header">
+          <span>4. Большая команда профессионалов</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>В нашей команде более 30 специалистов с опытом работы в сфере недвижимости.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="400">
+        <div class="fact-header">
+          <span>5. Надёжность и прозрачность сделок</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Мы гарантируем юридическую чистоту всех сделок и прозрачные условия сотрудничества.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="500">
+        <div class="fact-header">
+          <span>6. 100% информационная безопасность</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Все данные клиентов защищены и не передаются третьим лицам.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="600">
+        <div class="fact-header">
+          <span>7. Индивидуальный подход</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Каждому клиенту мы подбираем оптимальное решение с учётом всех пожеланий.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="700">
+        <div class="fact-header">
+          <span>8. Большая база объектов недвижимости</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Мы сотрудничаем с крупнейшими застройщиками и частными владельцами.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="800">
+        <div class="fact-header">
+          <span>9. Более 500 успешных сделок</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Наш опыт подтверждён сотнями довольных клиентов.</p>
+        </div>
+      </div>
+      <div class="fact" data-aos="fade-up" data-aos-delay="900">
+        <div class="fact-header">
+          <span>10. Репутация надёжного партнёра</span>
+          <button class="toggle">+</button>
+        </div>
+        <div class="fact-content">
+          <p>Мы ценим доверие клиентов и строим долгосрочные отношения.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Блок служба качества -->
+<section class="quality" id="quality">
+  <div class="quality-container">
+    <!-- Левая часть -->
+    <div class="quality-left" data-aos="fade-right">
+      <h3>Оперативная консультация по стоимости риэлторских услуг в Республике Беларусь</h3>
+      <form class="consult-form" id="qualityForm">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="375 (__) ___-__-__" required>
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+    <!-- Правая часть -->
+    <div class="quality-right" data-aos="fade-left">
+      <h3>Служба качества компании</h3>
+      <p>Нам очень важно Ваше мнение о качество работы специалистов по недвижимости.  
+      В агентстве действует служба контроля качества, которая отслеживает уровень обслуживания клиентов и помогает улучшать сервис.</p>
+      <button class="feedback-btn" data-bs-toggle="modal" data-bs-target="#feedbackModal">Оставить отзыв</button>
+    </div>
+  </div>
+</section>
+
+<!-- Модальное окно для отзыва -->
+<div class="modal fade" id="feedbackModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Оставить отзыв о нашей работе</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="feedbackFormModal">
+          <div class="mb-3">
+            <label for="feedbackName" class="form-label">Ваше имя</label>
+            <input type="text" class="form-control" id="feedbackName" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="feedbackPhone" class="form-label">Телефон</label>
+            <input type="tel" class="form-control" id="feedbackPhone" name="phone" required>
+          </div>
+          <div class="mb-3">
+            <label for="feedbackMessage" class="form-label">Ваш отзыв</label>
+            <textarea class="form-control" id="feedbackMessage" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Отправить отзыв</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Секция с квадратами -->
+<section class="features" id="features">
+  <div class="container">
+    <!-- Первый ряд -->
+    <div class="grid">
+      <div class="item photo" style="background-image: url('https://images.unsplash.com/photo-1560449752-315d17c5b9bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80');" data-aos="zoom-in"></div>
+      <div class="item text" data-aos="fade-up" data-bs-toggle="modal" data-bs-target="#infoModal" data-info-type="premium">
+        <h3>Недвижимость премиум</h3>
+        <p>Лучшие квартиры и дома для требовательных клиентов.</p>
+      </div>
+      <div class="item photo" style="background-image: url('https://images.unsplash.com/photo-1565623833363-9b4ac5643eb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80');" data-aos="zoom-in"></div>
+      <div class="item text" data-aos="fade-up" data-bs-toggle="modal" data-bs-target="#infoModal" data-info-type="speed">
+        <h3>Скорость работы</h3>
+        <p>Мы подбираем недвижимость максимально быстро.</p>
+      </div>
+    </div>
+
+    <!-- Второй ряд -->
+    <div class="row2">
+      <div class="item text" data-aos="fade-up" data-bs-toggle="modal" data-bs-target="#infoModal" data-info-type="experience">
+        <h3>10 лет опыта</h3>
+        <p>Работаем на рынке недвижимости с 2013 года.</p>
+      </div>
+      <div class="item text" data-aos="fade-up" data-bs-toggle="modal" data-bs-target="#infoModal" data-info-type="legal">
+        <h3>Юридическое сопровождение</h3>
+        <p>Полное сопровождение сделок с недвижимостью.</p>
+      </div>
+      <div class="item photo" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80');" data-aos="zoom-in"></div>
+      <div class="item text" data-aos="fade-up" data-bs-toggle="modal" data-bs-target="#infoModal" data-info-type="clients">
+        <h3>Довольные клиенты</h3>
+        <p>Более 500 семей нашли с нами своё жильё.</p>
+      </div>
+    </div>
+
+    <!-- Фото внизу -->
+    <div class="full-photo" data-aos="fade-up"></div>
+  </div>
+</section>
+
+<!-- Объединенный футер с формой и контактами -->
+<footer class="combined-footer" id="contact">
+  <div class="container py-5">
+    <!-- Форма обратной связи -->
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="mb-4" data-aos="fade-up">Получите консультацию по тарифам</h2>
+        <form class="row g-2 justify-content-center" id="feedbackFormBottom">
+          <div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="Имя" required></div>
+          <div class="col-md-3"><input type="text" class="form-control" name="phone" placeholder="Телефон" required></div>
+          <div class="col-md-4"><input type="text" class="form-control" name="request" placeholder="Интересующая услуга" required></div>
+          <div class="col-md-2"><button type="submit" class="btn btn-warning w-100">Отправить</button></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Контакты и соцсети -->
+    <div class="row">
+      <div class="col-md-6">
+        <h4>АН ФАТТОРИЯ</h4>
+        <p>Ваш надежный партнер в мире недвижимости</p>
+        <div class="contact-info">
+          <p><i class="fas fa-phone me-2"></i> +375 (44) 702-52-67</p>
+          <p><i class="fas fa-envelope me-2"></i> ruskevichegor@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt me-2"></i> Минск, Беларусь</p>
+        </div>
+        <div class="mt-4">
+          <h5>Лицензия</h5>
+          <p><small>Лицензия на осуществление деятельности № 12345 от 01.01.2023</small></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h5>Мы в социальных сетях</h5>
+        <div class="social-links">
+          <a href="https://wa.me/375447025267" target="_blank" class="text-white me-3">
+            <i class="fab fa-whatsapp fa-2x"></i>
+          </a>
+          <a href="https://t.me/fattoriaminsk" target="_blank" class="text-white me-3">
+            <i class="fab fa-telegram fa-2x"></i>
+          </a>
+          <a href="https://instagram.com/fattoria.by" target="_blank" class="text-white me-3">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a href="https://facebook.com/yourusername" target="_blank" class="text-white">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+        </div>
+        <div class="mt-4">
+          <h5>Как нас найти</h5>
+          <div class="mt-3">
+            <p>г. Минск, ул. Репина, д. 4, пом. 458. </p>
+            <p>Пн-Пт: 9:00-21:00, Сб: 10:00-18:00, Вс: выходной</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="text-center">
+      <p>&copy; 2024 АН ФАТТОРИЯ. Все права защищены.</p>
+      <p><small><a href="#" class="text-white">Политика конфиденциальности</a> | <a href="#" class="text-white">Пользовательское соглашение</a></small></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+<!-- Загрузчик header -->
+<script src="js/header-loader.js" defer></script>
+<!-- Load Components JS -->
+<script src="js/load-components.js" defer></script>
+<!-- Объединенные скрипты для index2 -->
+<script src="js/index2-combined.js" defer></script>
+</body>
+</html>

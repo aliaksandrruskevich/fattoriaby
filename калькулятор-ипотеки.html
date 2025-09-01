@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>АН ФАТТОРИЯ - Калькулятор ипотеки</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Combined CSS -->
+  <link rel="stylesheet" href="css/combined-all.css">
+  <link rel="stylesheet" href="css/mortgage-calculator.css">
+</head>
+<body>
+
+<!-- Контейнер для уведомлений -->
+<div class="toast-container"></div>
+
+<!-- Модальное окно для тест-драйва -->
+<div class="modal fade test-drive-modal" id="testDriveModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="test-drive-header">
+        <h3 class="modal-title">Тест-драйв услуг агентства</h3>
+        <p>Попробуйте наши услуги по продаже квартиры в течение 10 дней без риска</p>
+      </div>
+      <div class="test-drive-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Что входит в тест-драйв:</h4>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-home"></i></div>
+              <div>Бесплатная оценка вашей недвижимости</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-camera"></i></div>
+              <div>Профессиональная фотосъемка объекта</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+              <div>Размещение на 20+ рекламных площадках</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-users"></i></div>
+              <div>Персональный менеджер на весь период</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+              <div>Организация показов и переговоров</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4>Оставьте заявку</h4>
+            <p>Наш агент свяжется с вами в течение 15 минут</p>
+            <form id="testDriveForm">
+              <div class="mb-3">
+                <input type="text" class="form-control" name="name" placeholder="Ваше имя" required aria-label="Ваше имя">
+              </div>
+              <div class="mb-3">
+                <input type="tel" class="form-control" name="phone" placeholder="Ваш телефон" required aria-label="Ваш телефон">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="address" placeholder="Адрес объекта" aria-label="Адрес объекта">
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="agreeCheck" required>
+                <label class="form-check-label" for="agreeCheck">
+                  Даю согласие на обработку персональных данных и согласен с условиями тест-драйва
+                </label>
+              </div>
+              <button type="submit" class="btn btn-warning w-100">Получить тест-драйв</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно для "Почему нам доверяют" -->
+<div class="modal fade" id="trustModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="trustModalTitle">Почему нам доверяют</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="trustModalContent">
+          <!-- Контент будет заполняться динамически -->
+        </div>
+        <hr>
+        <h6>Оставьте номер телефона, мы вам перезвоним</h6>
+        <form id="trustCallbackForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" name="name" placeholder="Ваше имя" aria-label="Ваше имя">
+          </div>
+          <div class="mb-3">
+            <input type="tel" class="form-control" name="phone" placeholder="Ваш телефон" required aria-label="Ваш телефон">
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Перезвоните мне</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Основная навигация">
+  <div class="container">
+    <a class="navbar-brand text-white" href="index1.html" aria-label="Главная страница АН ФАТТОРИЯ">АН ФАТТОРИЯ</a>
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index1.html">Главная</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Недвижимость">
+            Недвижимость
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="загородная недвижимость.html">Загородная недвижимость</a></li>
+            <li><a class="dropdown-item" href="наши обьекты.html">Наши объекты</a></li>
+            <li><a class="dropdown-item" href="камерческая недвижимость.html">Коммерческая недвижимость</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="новостройки.html">Новостройки</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Блог</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Юридическая">
+            Юридическая
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="информация.html">Информация</a></li>
+            <li><a class="dropdown-item" href="о компании.html">О компании</a></li>
+            <li><a class="dropdown-item" href="сотрудники.html">Сотрудники</a></li>
+            <li><a class="dropdown-item" href="тарифная сетка.html">Тарифная сетка</a></li>
+            <li><a class="dropdown-item" href="учередители.html">Учредители</a></li>
+            <li><a class="dropdown-item" href="калькулятор-ипотеки.html">Калькулятор ипотеки</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+      </ul>
+      <div class="navbar-phone d-flex align-items-center">
+        <a href="tel:+375447025267" aria-label="Позвонить +375 (44) 702-52-67">+375 (44) 702-52-67</a>
+        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#testDriveModal" aria-label="Заказать звонок">Заказать звонок</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Шапка -->
+<header id="main">
+  <h1 data-aos="fade-down">АН ФАТТОРИЯ</h1>
+
+  <!-- Форма обратной связи (верхняя) -->
+  <form class="row g-2 justify-content-center" id="feedbackFormTop">
+    <div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="Имя" required></div>
+    <div class="col-md-3"><input type="text" class="form-control" name="phone" placeholder="Телефон" required></div>
+    <div class="col-md-4"><input type="text" class="form-control" name="request" placeholder="Интересующая услуга" required></div>
+    <div class="col-md-2"><button type="submit" class="btn btn-warning w-100">Отправить</button></div>
+  </form>
+</header>
+
+<!-- Основной контент -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h1 data-aos="fade-down">Калькулятор ипотеки</h1>
+        <p class="lead" data-aos="fade-up">Рассчитайте ежемесячный платеж и общую стоимость ипотеки</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="calculator-card" data-aos="fade-up">
+          <form id="mortgageForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="loanAmount" class="form-label">Сумма кредита (руб.)</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" id="loanAmount" value="3000000" min="100000" max="50000000" required>
+                  <span class="input-group-text">₽</span>
+                </div>
+                <input type="range" class="form-range slider mt-2" id="loanAmountSlider" min="100000" max="50000000" value="3000000">
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="interestRate" class="form-label">Процентная ставка (%)</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" id="interestRate" value="12" min="1" max="30" step="0.1" required>
+                  <span class="input-group-text">%</span>
+                </div>
+                <input type="range" class="form-range slider mt-2" id="interestRateSlider" min="1" max="30" value="12" step="0.1">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="loanTerm" class="form-label">Срок кредита (лет)</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" id="loanTerm" value="20" min="1" max="50" required>
+                  <span class="input-group-text">лет</span>
+                </div>
+                <input type="range" class="form-range slider mt-2" id="loanTermSlider" min="1" max="50" value="20">
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="downPayment" class="form-label">Первоначальный взнос (руб.)</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" id="downPayment" value="600000" min="0" required>
+                  <span class="input-group-text">₽</span>
+                </div>
+                <input type="range" class="form-range slider mt-2" id="downPaymentSlider" min="0" max="10000000" value="600000">
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-calculate">
+                <i class="fas fa-calculator me-2"></i>Рассчитать
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="result-card d-none" id="results" data-aos="fade-up">
+          <h3 class="text-center mb-4">Результаты расчета</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="result-item">
+                <h5>Ежемесячный платеж</h5>
+                <div class="result-value" id="monthlyPayment">0 ₽</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="result-item">
+                <h5>Общая сумма выплат</h5>
+                <div class="result-value" id="totalPayment">0 ₽</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="result-item">
+                <h5>Переплата по процентам</h5>
+                <div class="result-value" id="totalInterest">0 ₽</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="result-item">
+                <h5>Сумма кредита</h5>
+                <div class="result-value" id="loanAmountResult">0 ₽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Информационный блок -->
+<section class="section black-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 data-aos="fade-up">Полезная информация</h2>
+        <p class="lead" data-aos="fade-up" data-aos-delay="200">Что нужно знать об ипотеке</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="card h-100 border-0 shadow">
+          <div class="card-body text-center">
+            <i class="fas fa-home fa-3x text-warning mb-3"></i>
+            <h5 class="card-title">Первоначальный взнос</h5>
+            <p class="card-text">Минимальный первоначальный взнос обычно составляет 15-20% от стоимости недвижимости</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 border-0 shadow">
+          <div class="card-body text-center">
+            <i class="fas fa-percentage fa-3x text-warning mb-3"></i>
+            <h5 class="card-title">Процентная ставка</h5>
+            <p class="card-text">Ставки зависят от банка, кредитной истории и размера первоначального взноса</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="card h-100 border-0 shadow">
+          <div class="card-body text-center">
+            <i class="fas fa-calendar-alt fa-3x text-warning mb-3"></i>
+            <h5 class="card-title">Срок кредитования</h5>
+            <p class="card-text">Максимальный срок ипотеки обычно составляет 25-30 лет</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Объединенный футер с формой и контактами -->
+<footer class="combined-footer" id="contact" role="contentinfo">
+  <div class="container py-5">
+    <!-- Форма обратной связи -->
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="mb-4" data-aos="fade-up">Получите консультацию по ипотеке</h2>
+        <form class="row g-2 justify-content-center" id="mortgageFormBottom">
+          <div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="Имя" required aria-label="Имя"></div>
+          <div class="col-md-3"><input type="text" class="form-control" name="phone" placeholder="Телефон" required aria-label="Телефон"></div>
+          <div class="col-md-4"><input type="text" class="form-control" name="loanAmount" placeholder="Сумма кредита" required aria-label="Сумма кредита"></div>
+          <div class="col-md-2"><button type="submit" class="btn btn-warning w-100">Отправить</button></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Контакты и соцсети -->
+    <div class="row">
+      <div class="col-md-6">
+        <h4>АН ФАТТОРИЯ</h4>
+        <p>Ваш надежный партнер в мире недвижимости</p>
+        <div class="contact-info">
+          <p><i class="fas fa-phone me-2"></i> <a href="tel:+375447025267" aria-label="Телефон +375 (44) 702-52-67">+375 (44) 702-52-67</a></p>
+          <p><i class="fas fa-envelope me-2"></i> <a href="mailto:ruskevichegor@gmail.com" aria-label="Email ruskevichegor@gmail.com">ruskevichegor@gmail.com</a></p>
+          <p><i class="fas fa-map-marker-alt me-2"></i> Минск, Беларусь</p>
+        </div>
+        <div class="mt-4">
+          <h5>Лицензия</h5>
+          <p><small>Лицензия на осуществление деятельности № 12345 от 01.01.2023</small></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h5>Мы в социальных сетях</h5>
+        <div class="social-links">
+          <a href="https://wa.me/375447025267" target="_blank" class="text-white me-3" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp fa-2x"></i>
+          </a>
+          <a href="https://t.me/fattoriaminsk" target="_blank" class="text-white me-3" aria-label="Telegram">
+            <i class="fab fa-telegram fa-2x"></i>
+          </a>
+          <a href="https://instagram.com/fattoria.by" target="_blank" class="text-white me-3" aria-label="Instagram">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a href="https://facebook.com/yourusername" target="_blank" class="text-white" aria-label="Facebook">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+        </div>
+        <div class="mt-4">
+          <h5>Как нас найти</h5>
+          <div class="mt-3">
+            <p>г. Минск, ул. Репина, д. 4, пом. 458.</p>
+            <p>Пн-Пт: 9:00-21:00, Сб: 10:00-18:00, Вс: выходной</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="text-center">
+      <p>&copy; 2024 АН ФАТТОРИЯ. Все права защищены.</p>
+      <p><small><a href="#" class="text-white">Политика конфиденциальности</a> | <a href="#" class="text-white">Пользовательское соглашение</a></small></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+<!-- Загрузчик header -->
+<script src="js/header-loader.js" defer></script>
+<!-- Load Components JS -->
+<script src="js/load-components.js" defer></script>
+<!-- Common JavaScript -->
+<script src="js/common.js" defer></script>
+<!-- Forms JavaScript -->
+<script src="js/forms.js" defer></script>
+<!-- Toast JavaScript -->
+<script src="js/toast.js" defer></script>
+<script src="js/mortgage-calculator.js" defer></script>
+
+<!-- Плавающая кнопка чата Telegram -->
+<div class="telegram-chat-widget">
+  <a href="https://t.me/fattoriaminsk" target="_blank" class="telegram-chat-btn" title="Написать в Telegram">
+    <i class="fab fa-telegram-plane"></i>
+    <span class="chat-text">Чат</span>
+  </a>
+</div>
+</body>
+</html>

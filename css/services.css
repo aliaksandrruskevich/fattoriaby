@@ -1,0 +1,81 @@
+/* Additional styles specific to services-sellers.html */
+
+body { 
+  background: #111;
+  color: white;
+}
+
+header {
+  background: url('https://i.pinimg.com/736x/a4/1c/cd/a41ccd1c5d55aaa9d172ef85bbcd8cb2.jpg') center/cover no-repeat;
+}
+
+header h1 {
+  background: rgba(0,0,0,0.5);
+}
+
+/* Новые стили для таблиц тарифов */
+.tariff-section {
+  background: #1a1a1a;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.tariff-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: #222;
+}
+
+.tariff-table th, .tariff-table td {
+  border: 1px solid #444;
+  padding: 12px;
+  text-align: center;
+}
+
+.tariff-table th {
+  background: #333;
+  color: #f0ad4e;
+  font-weight: bold;
+}
+
+.tariff-table tr:nth-child(even) {
+  background: #252525;
+}
+
+.tariff-note {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Обновленные стили для форм */
+.form-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.form-box h2 {
+  margin-bottom: 20px;
+  color: #f0ad4e;
+}
+
+.transparent-input {
+  background-color: transparent !important;
+  border: 2px solid white !important;
+  color: white !important;
+}
+
+.transparent-input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Новые стили для объединенного футера */
+.combined-footer {
+  background: url('../фото/фото9.jpg') center/cover no-repeat;
+}

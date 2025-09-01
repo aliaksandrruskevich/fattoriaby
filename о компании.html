@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>АН ФАТТОРИЯ - О компании</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Combined CSS -->
+  <link rel="stylesheet" href="css/combined-all.css">
+  <!-- Reviews CSS -->
+  <link rel="stylesheet" href="css/reviews.css">
+</head>
+<body>
+
+<!-- Контейнер для уведомлений -->
+<div class="toast-container"></div>
+
+<!-- Модальное окно для тест-драйва -->
+<div class="modal fade test-drive-modal" id="testDriveModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="test-drive-header">
+        <h3 class="modal-title">Тест-драйв услуг агентства</h3>
+        <p>Попробуйте наши услуги по продаже квартиры в течение 10 дней без риска</p>
+      </div>
+      <div class="test-drive-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Что входит в тест-драйв:</h4>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-home"></i></div>
+              <div>Бесплатная оценка вашей недвижимости</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-camera"></i></div>
+              <div>Профессиональная фотосъемка объекта</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+              <div>Размещение на 20+ рекламных площадках</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-users"></i></div>
+              <div>Персональный менеджер на весь период</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+              <div>Организация показов и переговоров</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4>Оставьте заявку</h4>
+            <p>Наш агент свяжется с вами в течение 15 минут</p>
+            <form id="testDriveForm">
+              <div class="mb-3">
+                <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
+              </div>
+              <div class="mb-3">
+                <input type="tel" class="form-control" name="phone" placeholder="Ваш телефон" required>
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="address" placeholder="Адрес объекта">
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="agreeCheck" required>
+                <label class="form-check-label" for="agreeCheck">
+                  Даю согласие на обработку персональных данных и согласен с условиями тест-драйва
+                </label>
+              </div>
+              <button type="submit" class="btn btn-warning w-100">Получить тест-драйв</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно для "Почему нам доверяют" -->
+<div class="modal fade" id="trustModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="trustModalTitle">Почему нам доверяют</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="trustModalContent">
+          <!-- Контент будет заполняться динамически -->
+        </div>
+        <hr>
+        <h6>Оставьте номер телефона, мы вам перезвоним</h6>
+        <form id="trustCallbackForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" name="name" placeholder="Ваше имя">
+          </div>
+          <div class="mb-3">
+            <input type="tel" class="form-control" name="phone" placeholder="Ваш телефон" required>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Перезвоните мне</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-white" href="index1.html">АН ФАТТОРИЯ</a>
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index1.html">Главная</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Недвижимость
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="загородная недвижимость.html">Загородная недвижимость</a></li>
+            <li><a class="dropdown-item" href="наши обьекты.html">Наши объекты</a></li>
+            <li><a class="dropdown-item" href="камерческая недвижимость.html">Коммерческая недвижимость</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="новостройки.html">Новостройки</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Блог</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Юридическая
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="информация.html">Информация</a></li>
+            <li><a class="dropdown-item" href="о компании.html">О компании</a></li>
+            <li><a class="dropdown-item" href="сотрудники.html">Сотрудники</a></li>
+            <li><a class="dropdown-item" href="тарифная сетка.html">Тарифная сетка</a></li>
+            <li><a class="dropdown-item" href="учередители.html">Учредители</a></li>
+            <li><a class="dropdown-item" href="калькулятор-ипотеки.html">Калькулятор ипотеки</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+      </ul>
+      <div class="navbar-phone d-flex align-items-center">
+        <a href="tel:+375447025267">+375 (44) 702-52-67</a>
+        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#testDriveModal">Заказать звонок</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header id="main">
+  <h1 data-aos="fade-down">АН ФАТТОРИЯ</h1>
+
+  <!-- Форма обратной связи (верхняя) -->
+  <form class="row g-2 justify-content-center" id="feedbackFormTop">
+    <div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="Имя" required></div>
+    <div class="col-md-3"><input type="text" class="form-control" name="phone" placeholder="Телефон" required></div>
+    <div class="col-md-4"><input type="text" class="form-control" name="request" placeholder="Интересующая услуга" required></div>
+    <div class="col-md-2"><button type="submit" class="btn btn-warning w-100">Отправить</button></div>
+  </form>
+</header>
+
+<!-- Основной контент страницы -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6" data-aos="fade-right">
+        <h2>Агентство недвижимости "АН Фаттория"</h2>
+        <p>Мы работаем на рынке недвижимости более 10 лет, помогая нашим клиентам находить идеальное жилье и выгодно продавать свою недвижимость.</p>
+        <p>Наша команда профессиональных риелторов и юристов обеспечивает полное сопровождение сделок, гарантируя безопасность и прозрачность всех процессов.</p>
+        <p>Мы ценим доверие наших клиентов и стремимся предоставлять услуги высочайшего качества, учитывая индивидуальные потребности каждого.</p>
+        <ul>
+          <li>Более 1000 успешных сделок</li>
+          <li>Профессиональные риелторы с большим опытом работы</li>
+          <li>Полное юридическое сопровождение</li>
+          <li>Партнерские отношения с ведущими застройщиками</li>
+        </ul>
+      </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" class="img-fluid rounded" alt="Офис агентства недвижимости">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Наши преимущества -->
+<section class="section black-section" id="advantages">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Наши преимущества</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="text-center text-white">
+          <div class="advantage-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h5>Безопасность сделок</h5>
+          <p>Полное юридическое сопровождение и гарантия безопасности всех операций</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-center text-white">
+          <div class="advantage-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h5>Экономия времени</h5>
+          <p>Быстрый подбор объектов и оперативное оформление документов</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-center text-white">
+          <div class="advantage-icon">
+            <i class="fas fa-percent"></i>
+          </div>
+          <h5>Выгодные условия</h5>
+          <p>Конкурентные цены и индивидуальный подход к каждому клиенту</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-center text-white">
+          <div class="advantage-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h5>Опытная команда</h5>
+          <p>Профессиональные риелторы с многолетним опытом работы</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="text-center text-white">
+          <div class="advantage-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h5>Большая база</h5>
+          <p>Широкий выбор объектов недвижимости в разных ценовых категориях</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="text-center text-white">
+          <div class="advantage-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h5>Поддержка 24/7</h5>
+          <p>Круглосуточная поддержка клиентов и оперативное решение вопросов</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Статистика -->
+<section class="section" id="stats">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Наша статистика</h2>
+    <div class="row text-center">
+      <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="0">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Успешных сделок</div>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Лет опыта</div>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Довольных клиентов</div>
+      </div>
+      <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Поддержка клиентов</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Отзывы клиентов -->
+<section class="section" id="reviews">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Отзывы наших клиентов</h2>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=387&q=80" class="review-avatar" alt="Анна Петрова" loading="lazy">
+            <div class="review-info">
+              <h5>Анна Петрова</h5>
+              <div class="review-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>"Огромное спасибо агентству АН Фаттория за профессиональную помощь в покупке квартиры! Все этапы сделки были проведены четко и прозрачно. Особенно порадовала скорость работы и внимательное отношение к нашим пожеланиям."</p>
+            <div class="review-service">Услуга: Покупка квартиры</div>
+            <button class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#reviewModal1">Читать полностью</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=387&q=80" class="review-avatar" alt="Михаил Сидоров" loading="lazy">
+            <div class="review-info">
+              <h5>Михаил Сидоров</h5>
+              <div class="review-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>"Работали с агентством по продаже коммерческой недвижимости. Все документы были оформлены правильно, цена была максимально выгодной. Рекомендую всем, кто ищет надежных партнеров в сфере недвижимости!"</p>
+            <div class="review-service">Услуга: Продажа коммерческой недвижимости</div>
+            <button class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#reviewModal2">Читать полностью</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=387&q=80" class="review-avatar" alt="Елена Козлова" loading="lazy">
+            <div class="review-info">
+              <h5>Елена Козлова</h5>
+              <div class="review-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>"Спасибо за помощь в получении ипотеки! Специалисты агентства помогли собрать все необходимые документы и подобрали оптимальные условия кредитования. Сделка прошла гладко и без задержек."</p>
+            <div class="review-service">Услуга: Ипотечное кредитование</div>
+            <button class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#reviewModal3">Читать полностью</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Модальные окна для полных отзывов -->
+<div class="modal fade" id="reviewModal1" tabindex="-1" aria-labelledby="reviewModal1Label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModal1Label">Отзыв Анны Петровой</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="review-modal-header">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=387&q=80" class="review-modal-avatar" alt="Анна Петрова">
+          <div class="review-modal-info">
+            <h5>Анна Петрова</h5>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <small class="text-muted">Услуга: Покупка квартиры • 15.03.2024</small>
+          </div>
+        </div>
+        <div class="review-modal-content">
+          <p>Огромное спасибо агентству АН Фаттория за профессиональную помощь в покупке квартиры! Все этапы сделки были проведены четко и прозрачно. Особенно порадовала скорость работы и внимательное отношение к нашим пожеланиям.</p>
+          <p>С самого начала менеджер агентства внимательно выслушал наши требования к будущему жилью - район, этаж, количество комнат, бюджет. Уже на следующий день нам показали несколько подходящих вариантов. Каждый объект был тщательно проверен на юридическую чистоту.</p>
+          <p>Особенно хочу отметить работу юриста агентства - все документы были оформлены безупречно, без каких-либо задержек. Мы чувствовали себя уверенно на всех этапах сделки.</p>
+          <p>Рекомендую АН Фаттория всем, кто ищет надежного партнера в сфере недвижимости!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reviewModal2" tabindex="-1" aria-labelledby="reviewModal2Label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModal2Label">Отзыв Михаила Сидорова</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="review-modal-header">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=387&q=80" class="review-modal-avatar" alt="Михаил Сидоров">
+          <div class="review-modal-info">
+            <h5>Михаил Сидоров</h5>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <small class="text-muted">Услуга: Продажа коммерческой недвижимости • 22.02.2024</small>
+          </div>
+        </div>
+        <div class="review-modal-content">
+          <p>Работали с агентством по продаже коммерческой недвижимости. Все документы были оформлены правильно, цена была максимально выгодной. Рекомендую всем, кто ищет надежных партнеров в сфере недвижимости!</p>
+          <p>У нас был объект коммерческой недвижимости - помещение под магазин в хорошем районе Минска. Обратились в несколько агентств, но выбрали АН Фаттория из-за их профессионального подхода и репутации.</p>
+          <p>Специалисты агентства провели маркетинговый анализ, оценили объект по рыночной стоимости и разработали эффективную стратегию продажи. Реклама была размещена на всех ключевых площадках, что позволило привлечь серьезных покупателей.</p>
+          <p>Весь процесс занял всего 3 недели - от оценки до заключения договора. Цена продажи превысила наши ожидания на 15%. Все юридические аспекты были тщательно проработаны, что дало нам уверенность в безопасности сделки.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reviewModal3" tabindex="-1" aria-labelledby="reviewModal3Label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModal3Label">Отзыв Елены Козловой</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="review-modal-header">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=387&q=80" class="review-modal-avatar" alt="Елена Козлова">
+          <div class="review-modal-info">
+            <h5>Елена Козлова</h5>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <small class="text-muted">Услуга: Ипотечное кредитование • 10.01.2024</small>
+          </div>
+        </div>
+        <div class="review-modal-content">
+          <p>Спасибо за помощь в получении ипотеки! Специалисты агентства помогли собрать все необходимые документы и подобрали оптимальные условия кредитования. Сделка прошла гладко и без задержек.</p>
+          <p>Мы с мужем планировали покупку квартиры в ипотеку, но процесс получения кредита казался нам очень сложным и запутанным. Обратились в АН Фаттория за помощью в этом вопросе.</p>
+          <p>Менеджер агентства не только помог собрать все необходимые документы, но и проконсультировал по всем нюансам ипотечного кредитования. Были подобраны несколько банков с наиболее выгодными условиями.</p>
+          <p>Благодаря их помощи мы получили ипотеку под 12% годовых с минимальным первоначальным взносом. Весь процесс от подачи заявки до получения денег занял всего 2 недели. Очень довольны результатом!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Объединенный футер с формой и контактами -->
+<footer class="combined-footer" id="contact">
+  <div class="container py-5">
+    <!-- Форма обратной связи -->
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="mb-4" data-aos="fade-up">Получите консультацию по тарифам</h2>
+        <form class="row g-2 justify-content-center" id="feedbackFormBottom">
+          <div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="Имя" required></div>
+          <div class="col-md-3"><input type="text" class="form-control" name="phone" placeholder="Телефон" required></div>
+          <div class="col-md-4"><input type="text" class="form-control" name="request" placeholder="Интересующая услуга" required></div>
+          <div class="col-md-2"><button type="submit" class="btn btn-warning w-100">Отправить</button></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Контакты и соцсети -->
+    <div class="row">
+      <div class="col-md-6">
+        <h4>АН ФАТТОРИЯ</h4>
+        <p>Ваш надежный партнер в мире недвижимости</p>
+        <div class="contact-info">
+          <p><i class="fas fa-phone me-2"></i> +375 (44) 702-52-67</p>
+          <p><i class="fas fa-envelope me-2"></i> ruskevichegor@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt me-2"></i> Минск, Беларусь</p>
+        </div>
+        <div class="mt-4">
+          <h5>Лицензия</h5>
+          <p><small>Лицензия на осуществление деятельности № 12345 от 01.01.2023</small></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h5>Мы в социальных сетях</h5>
+        <div class="social-links">
+          <a href="https://wa.me/375447025267" target="_blank" class="text-white me-3">
+            <i class="fab fa-whatsapp fa-2x"></i>
+          </a>
+          <a href="https://t.me/fattoriaminsk" target="_blank" class="text-white me-3">
+            <i class="fab fa-telegram fa-2x"></i>
+          </a>
+          <a href="https://instagram.com/fattoria.by" target="_blank" class="text-white me-3">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a href="https://facebook.com/yourusername" target="_blank" class="text-white">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+        </div>
+        <div class="mt-4">
+          <h5>Как нас найти</h5>
+          <div class="mt-3">
+            <p>г. Минск, ул. Репина, д. 4, пом. 458. </p>
+            <p>Пн-Пт: 9:00-21:00, Сб: 10:00-18:00, Вс: выходной</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="text-center">
+      <p>&copy; 2024 АН ФАТТОРИЯ. Все права защищены.</p>
+      <p><small><a href="#" class="text-white">Политика конфиденциальности</a> | <a href="#" class="text-white">Пользовательское соглашение</a></small></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+<!-- Загрузчик header -->
+<script src="js/header-loader.js" defer></script>
+<!-- Load Components JS -->
+<script src="js/load-components.js" defer></script>
+<!-- Common JavaScript -->
+<script src="js/common.js" defer></script>
+<!-- Forms JavaScript -->
+<script src="js/forms.js" defer></script>
+<!-- Toast JavaScript -->
+<script src="js/toast.js" defer></script>
+<!-- Page-specific JavaScript -->
+<script src="js/about.js" defer></script>
+
+<!-- Плавающая кнопка чата Telegram -->
+<div class="telegram-chat-widget">
+  <a href="https://t.me/fattoriaminsk" target="_blank" class="telegram-chat-btn" title="Написать в Telegram">
+    <i class="fab fa-telegram-plane"></i>
+    <span class="chat-text">Чат</span>
+  </a>
+</div>
+</body>
+</html>

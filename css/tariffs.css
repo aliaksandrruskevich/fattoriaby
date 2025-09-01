@@ -1,0 +1,171 @@
+:root {
+  --container-width: 1140px;
+  --section-padding: 60px 0;
+}
+
+body { 
+  scroll-behavior: smooth;
+  background: #111;
+  color: white;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+header {
+  background: url('https://i.pinimg.com/736x/a4/1c/cd/a41ccd1c5d55aaa9d172ef85bbcd8cb2.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  flex-direction: column;
+}
+
+header h1 {
+  font-size: 48px;
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.section {
+  padding: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+.section-content {
+  position: relative;
+  z-index: 1;
+}
+
+.black-section {
+  background: #111;
+  color: #fff;
+}
+
+nav.navbar { 
+  background: rgba(0,0,0,0.8); 
+}
+
+nav a.nav-link { 
+  color: #fff !important; 
+}
+
+nav a.nav-link:hover { 
+  color: #f0ad4e !important; 
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Новые стили для таблиц тарифов */
+.tariff-section {
+  background: #1a1a1a;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.tariff-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: #222;
+}
+
+.tariff-table th, .tariff-table td {
+  border: 1px solid #444;
+  padding: 12px;
+  text-align: center;
+}
+
+.tariff-table th {
+  background: #333;
+  color: #f0ad4e;
+  font-weight: bold;
+}
+
+.tariff-table tr:nth-child(even) {
+  background: #252525;
+}
+
+.tariff-note {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Обновленные стили для форм */
+.form-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.form-box h2 {
+  margin-bottom: 20px;
+  color: #f0ad4e;
+}
+
+.transparent-input {
+  background-color: transparent !important;
+  border: 2px solid white !important;
+  color: white !important;
+}
+
+.transparent-input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Новые стили для объединенного футера */
+.combined-footer {
+  background: url('../фото/фото9.jpg') center/cover no-repeat;
+  color: white;
+  position: relative;
+}
+
+.combined-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+.combined-footer .container {
+  position: relative;
+  z-index: 1;
+}

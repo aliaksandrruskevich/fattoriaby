@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>АН ФАТТОРИЯ - Тарифная сетка</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Combined CSS -->
+  <link rel="stylesheet" href="css/combined-all.css">
+</head>
+<body>
+
+<!-- Контейнер для уведомлений -->
+<div class="toast-container"></div>
+
+<!-- Модальное окно для тест-драйва -->
+<div class="modal fade test-drive-modal" id="testDriveModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="test-drive-header">
+        <h3 class="modal-title">Тест-драйв услуг агентства</h3>
+        <p>Попробуйте наши услуги по продаже квартиры в течение 10 дней без риска</p>
+      </div>
+      <div class="test-drive-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Что входит в тест-драйв:</h4>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-home"></i></div>
+              <div>Бесплатная оценка вашей недвижимости</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-camera"></i></div>
+              <div>Профессиональная фотосъемка объекта</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+              <div>Размещение на 20+ рекламных площадках</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-users"></i></div>
+              <div>Персональный менеджер на весь период</div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+              <div>Организация показов и переговоров</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4>Оставьте заявку</h4>
+            <p>Наш агент свяжется с вами в течение 15 минут</p>
+            <form id="testDriveForm">
+              <div class="mb-3">
+                <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
+              </div>
+              <div class="mb-3">
+                <input type="tel" class="form-control" name="phone" placeholder="Ваш телефон" required>
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="address" placeholder="Адрес объекта">
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="agreeCheck" required>
+                <label class="form-check-label" for="agreeCheck">
+                  Даю согласие на обработку персональных данных и согласен с условиями тест-драйва
+                </label>
+              </div>
+              <button type="submit" class="btn btn-warning w-100">Получить тест-драйв</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно для "Почему нам доверяют" -->
+<div class="modal fade" id="trustModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="trustModalTitle">Почему нам доверяют</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="trustModalContent">
+          <!-- Контент будет заполняться динамически -->
+        </div>
+        <hr>
+        <h6>Оставьте номер телефона, мы вам перезвоним</h6>
+        <form id="trustCallbackForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" name="name" placeholder="Ваше имя">
+          </div>
+          <div class="mb-3">
+            <input type="tel" class="form-control" name="phone" placeholder="Ваш телефон" required>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Перезвоните мне</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-white" href="index1.html">АН ФАТТОРИЯ</a>
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index1.html">Главная</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Недвижимость
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="загородная недвижимость.html">Загородная недвижимость</a></li>
+            <li><a class="dropdown-item" href="наши обьекты.html">Наши объекты</a></li>
+            <li><a class="dropdown-item" href="камерческая недвижимость.html">Коммерческая недвижимость</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="новостройки.html">Новостройки</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Блог</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Юридическая
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="информация.html">Информация</a></li>
+            <li><a class="dropdown-item" href="о компании.html">О компании</a></li>
+            <li><a class="dropdown-item" href="сотрудники.html">Сотрудники</a></li>
+            <li><a class="dropdown-item" href="тарифная сетка.html">Тарифная сетка</a></li>
+            <li><a class="dropdown-item" href="учередители.html">Учредители</a></li>
+            <li><a class="dropdown-item" href="калькулятор-ипотеки.html">Калькулятор ипотеки</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+      </ul>
+      <div class="navbar-phone d-flex align-items-center">
+        <a href="tel:+375447025267">+375 (44) 702-52-67</a>
+        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#testDriveModal">Заказать звонок</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header id="main">
+  <h1 data-aos="fade-down">АН ФАТТОРИЯ</h1>
+
+  <!-- Форма обратной связи (верхняя) -->
+  <form class="row g-2 justify-content-center" id="feedbackFormTop">
+    <div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="Имя" required></div>
+    <div class="col-md-3"><input type="text" class="form-control" name="phone" placeholder="Телефон" required></div>
+    <div class="col-md-4"><input type="text" class="form-control" name="request" placeholder="Интересующая услуга" required></div>
+    <div class="col-md-2"><button type="submit" class="btn btn-warning w-100">Отправить</button></div>
+  </form>
+</header>
+
+<!-- Тарифы -->
+<section class="section black-section" id="tariffs">
+  <div class="container">
+    <!-- Тарифы по стоимости -->
+    <div class="tariff-section" data-aos="fade-up">
+      <h2 class="text-center mb-4">Тарифы (ставки) на риэлторские услуги по стоимости объекта</h2>
+      <div class="table-responsive">
+        <table class="tariff-table">
+          <tr><th>Стоимость объекта недвижимости</th><th>Тариф, %</th></tr>
+          <tr><td>До 4000 включительно</td><td>3.0</td></tr>
+          <tr><td>Свыше 4200 до 5 000</td><td>2.5</td></tr>
+          <tr><td>Свыше 5 000 до 5800</td><td>2.4</td></tr>
+          <tr><td>Свыше 5800 до 35 000</td><td>2.3</td></tr>
+          <tr><td>Свыше 6600 до 40 000</td><td>2.2</td></tr>
+          <tr><td>Свыше 7500 до 45 000</td><td>2.1</td></tr>
+          <tr><td>Свыше 45 000 до 50 000</td><td>2.0</td></tr>
+          <tr><td>Свыше 50 000 до 55 000</td><td>1.9</td></tr>
+          <tr><td>Свыше 55 000 до 60 000</td><td>1.8</td></tr>
+          <tr><td>Свыше 60 000 до 65 000</td><td>1.7</td></tr>
+          <tr><td>Свыше 65 000 до 70 000</td><td>1.6</td></tr>
+          <tr><td>Свыше 70 000 до 75 000</td><td>1.5</td></tr>
+          <tr><td>Свыше 75 000 до 80 000</td><td>1.4</td></tr>
+          <tr><td>Свыше 80 000 до 85 000</td><td>1.3</td></tr>
+          <tr><td>Свыше 85 000 до 90 000</td><td>1.2</td></tr>
+          <tr><td>Свыше 90 000 до 95 000</td><td>1.1</td></tr>
+          <tr><td>Свыше 95 000 до 100 000</td><td>1.0</td></tr>
+        </table>
+      </div>
+      <p class="tariff-note">Тарифы действительны на основании Постановления Совета Министров РБ №703 от 18.05.2021 г.</p>
+    </div>
+
+    <!-- Тарифы для физических лиц -->
+    <div class="tariff-section" data-aos="fade-up">
+      <h2 class="text-center mb-4">Тарифы (ставки) для физических лиц</h2>
+      <div class="table-responsive">
+        <table class="tariff-table">
+          <tr><th>Наименование риэлторской услуги</th><th>Тариф (в базовых величинах)</th></tr>
+          <tr><td>Консультационная услуга по сделкам (письменно)</td><td>3</td></tr>
+          <tr><td>Информация о спросе и предложении (письменно)</td><td>5</td></tr>
+          <tr><td>Подбор объектов недвижимости</td><td>5</td></tr>
+          <tr><td>Договор аренды нежилых помещений</td><td>30</td></tr>
+          <tr><td>Подбор вариантов сделок (квартира/дом)</td><td>65</td></tr>
+          <tr><td>Подбор вариантов сделок (комната)</td><td>60</td></tr>
+          <tr><td>Подбор вариантов сделок (дача, садовый дом)</td><td>45</td></tr>
+          <tr><td>Подбор вариантов сделок (гараж)</td><td>25</td></tr>
+          <tr><td>Подбор вариантов сделок (машино-место)</td><td>20</td></tr>
+          <tr><td>Организация переговоров</td><td>10</td></tr>
+          <tr><td>Помощь в подготовке документов (квартира)</td><td>30</td></tr>
+          <tr><td>Помощь (дом + участок)</td><td>40</td></tr>
+          <tr><td>Помощь (земельный участок)</td><td>25</td></tr>
+          <tr><td>Помощь (дача, садовый дом)</td><td>30</td></tr>
+          <tr><td>Помощь (гараж)</td><td>20</td></tr>
+          <tr><td>Помощь (машино-место)</td><td>15</td></tr>
+          <tr><td>Найм жилых помещений</td><td>5</td></tr>
+          <tr><td>Документы по сделкам с залогом</td><td>15</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Дополнительная информация -->
+    <div class="tariff-section" data-aos="fade-up">
+      <h2 class="text-center mb-4">Дополнительная информация</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Условия оказания услуг</h5>
+          <ul>
+            <li>Все цены указаны в белорусских рублях</li>
+            <li>Минимальная стоимость услуг - 100 базовых величин</li>
+            <li>Скидки при комплексном обслуживании</li>
+            <li>Возможна оплата в рассрочку</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h5>Что входит в стоимость</h5>
+          <ul>
+            <li>Консультация специалиста</li>
+            <li>Подбор объектов недвижимости</li>
+            <li>Организация просмотров</li>
+            <li>Юридическое сопровождение</li>
+            <li>Подготовка документов</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Калькулятор стоимости услуг -->
+<section class="section" id="calculator" style="background: #f8f9fa;">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Калькулятор стоимости услуг</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card" data-aos="zoom-in">
+          <div class="card-body">
+            <form id="calculatorForm">
+              <div class="mb-3">
+                <label class="form-label">Стоимость объекта недвижимости (BYN)</label>
+                <input type="number" class="form-control" id="propertyPrice" placeholder="Введите стоимость" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Тип услуги</label>
+                <select class="form-select" id="serviceType">
+                  <option value="sale">Продажа недвижимости</option>
+                  <option value="purchase">Покупка недвижимости</option>
+                  <option value="rent">Аренда</option>
+                  <option value="consultation">Консультация</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-primary w-100" onclick="calculateCost()">Рассчитать стоимость</button>
+            </form>
+            <div id="calculationResult" class="mt-4 text-center" style="display: none;">
+              <h4>Примерная стоимость услуг:</h4>
+              <div class="result-amount" id="resultAmount"></div>
+              <p class="text-muted mt-2" id="resultDetails"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Объединенный футер с формой и контактами -->
+<footer class="combined-footer" id="contact">
+  <div class="container py-5">
+    <!-- Форма обратной связи -->
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="mb-4" data-aos="fade-up">Получите консультацию по тарифам</h2>
+        <form class="row g-2 justify-content-center" id="feedbackFormBottom">
+          <div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="Имя" required></div>
+          <div class="col-md-3"><input type="text" class="form-control" name="phone" placeholder="Телефон" required></div>
+          <div class="col-md-4"><input type="text" class="form-control" name="request" placeholder="Интересующая услуга" required></div>
+          <div class="col-md-2"><button type="submit" class="btn btn-warning w-100">Отправить</button></div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Контакты и соцсети -->
+    <div class="row">
+      <div class="col-md-6">
+        <h4>АН ФАТТОРИЯ</h4>
+        <p>Ваш надежный партнер в мире недвижимости</p>
+        <div class="contact-info">
+          <p><i class="fas fa-phone me-2"></i> +375 (44) 702-52-67</p>
+          <p><i class="fas fa-envelope me-2"></i> ruskevichegor@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt me-2"></i> Минск, Беларусь</p>
+        </div>
+        <div class="mt-4">
+          <h5>Лицензия</h5>
+          <p><small>Лицензия на осуществление деятельности № 12345 от 01.01.2023</small></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h5>Мы в социальных сетях</h5>
+        <div class="social-links">
+          <a href="https://wa.me/375447025267" target="_blank" class="text-white me-3">
+            <i class="fab fa-whatsapp fa-2x"></i>
+          </a>
+          <a href="https://t.me/fattoriaminsk" target="_blank" class="text-white me-3">
+            <i class="fab fa-telegram fa-2x"></i>
+          </a>
+          <a href="https://instagram.com/fattoria.by" target="_blank" class="text-white me-3">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a href="https://facebook.com/yourusername" target="_blank" class="text-white">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+        </div>
+        <div class="mt-4">
+          <h5>Как нас найти</h5>
+          <div class="mt-3">
+            <p>г. Минск, ул. Репина, д. 4, пом. 458. </p>
+            <p>Пн-Пт: 9:00-21:00, Сб: 10:00-18:00, Вс: выходной</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="text-center">
+      <p>&copy; 2024 АН ФАТТОРИЯ. Все права защищены.</p>
+      <p><small><a href="#" class="text-white">Политика конфиденциальности</a> | <a href="#" class="text-white">Пользовательское соглашение</a></small></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+<!-- Загрузчик header -->
+<script src="js/header-loader.js" defer></script>
+<!-- Common JavaScript -->
+<script src="js/common.js" defer></script>
+<!-- Forms JavaScript -->
+<script src="js/forms.js" defer></script>
+<!-- Toast JavaScript -->
+<script src="js/toast.js" defer></script>
+<!-- Tariffs JavaScript -->
+<script src="js/tariffs.js" defer></script>
+
+<!-- Плавающая кнопка чата Telegram -->
+<div class="telegram-chat-widget">
+  <a href="https://t.me/fattoriaminsk" target="_blank" class="telegram-chat-btn" title="Написать в Telegram">
+    <i class="fab fa-telegram-plane"></i>
+    <span class="chat-text">Чат</span>
+  </a>
+</div>
+</body>
+</html>
