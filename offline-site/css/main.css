@@ -1,0 +1,45 @@
+/* Основные стили для офлайн-версии сайта */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+.property-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.property-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 300px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.property-card img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.property-title {
+  font-weight: bold;
+  margin: 10px 0 5px;
+  font-size: 1.1em;
+}
+
+.property-price {
+  color: #d2691e;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

@@ -1,5 +1,3 @@
-/* Removed duplicate declaration of scriptURL to avoid conflict */
-
 // URL Google Apps Script для обработки форм
 const scriptURL = "https://script.google.com/macros/s/AKfycbx2cgkl7fZ3SU1vY7rB6m_NpH9BZultSe0e65_7rkLJN_hSPeYRqXau3HNL8nFRZ-wFIw/exec";
 

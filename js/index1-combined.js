@@ -1,8 +1,10 @@
-// Инициализация анимаций
+17// Инициализация анимаций
 AOS.init({ duration: 1000, once: true });
 
-// URL вашего Google Apps Script
-const scriptURL = "https://script.google.com/macros/s/AKfycbx2cgkl7fZ3SU1vY7rB6m_NpH9BZultSe0e65_7rkLJN_hSPeYRqXau3HNL8nFRZ-wFIw/exec";
+if (typeof scriptURL === 'undefined') {
+  // URL вашего Google Apps Script
+  var scriptURL = "https://script.google.com/macros/s/AKfycbx2cgkl7fZ3SU1vY7rB6m_NpH9BZultSe0e65_7rkLJN_hSPeYRqXau3HNL8nFRZ-wFIw/exec";
+}
 
 // Функция для показа уведомлений
 function showToast(message, type = 'success') {
@@ -42,24 +44,29 @@ function handleForm(formId) {
     
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      
+
+      // Получаем элементы формы
+      const nameInput = form.querySelector('[name="name"]');
+      const phoneInput = form.querySelector('[name="phone"]');
+      const requestInput = form.querySelector('[name="request"]');
+
       // Проверка заполнения полей
-      if (!form.name.value.trim() || !form.phone.value.trim() || !form.request.value.trim()) {
+      if (!nameInput || !nameInput.value.trim() || !phoneInput || !phoneInput.value.trim() || !requestInput || !requestInput.value.trim()) {
         showToast('Пожалуйста, заполните все поля', 'error');
         return;
       }
-      
+
       // Показываем индикатор загрузки
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Отправка...';
       submitBtn.disabled = true;
-      
+
       // Создаем FormData вместо JSON
       const formData = new FormData();
-      formData.append('name', form.name.value);
-      formData.append('phone', form.phone.value);
-      formData.append('request', form.request.value);
+      formData.append('name', nameInput.value);
+      formData.append('phone', phoneInput.value);
+      formData.append('request', requestInput.value);
       formData.append('type', 'Обратная связь');
       formData.append('dateTime', new Date().toLocaleString());
       
@@ -97,24 +104,30 @@ function handleTestDriveForm() {
     
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      
+
+      // Получаем элементы формы
+      const nameInput = form.querySelector('[name="name"]');
+      const phoneInput = form.querySelector('[name="phone"]');
+      const addressInput = form.querySelector('[name="address"]');
+      const agreeCheck = form.querySelector('[name="agreeCheck"]');
+
       // Проверка заполнения полей
-      if (!form.name.value.trim() || !form.phone.value.trim() || !form.agreeCheck.checked) {
+      if (!nameInput || !nameInput.value.trim() || !phoneInput || !phoneInput.value.trim() || !agreeCheck || !agreeCheck.checked) {
         showToast('Пожалуйста, заполните все обязательные поля', 'error');
         return;
       }
-      
+
       // Показываем индикатор загрузки
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Отправка...';
       submitBtn.disabled = true;
-      
+
       // Создаем FormData
       const formData = new FormData();
-      formData.append('name', form.name.value);
-      formData.append('phone', form.phone.value);
-      formData.append('address', form.address.value);
+      formData.append('name', nameInput.value);
+      formData.append('phone', phoneInput.value);
+      formData.append('address', addressInput ? addressInput.value : '');
       formData.append('type', 'Тест-драйв услуг');
       formData.append('dateTime', new Date().toLocaleString());
       
@@ -157,23 +170,27 @@ function handleTrustCallbackForm() {
     
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      
+
+      // Получаем элементы формы
+      const nameInput = form.querySelector('[name="name"]');
+      const phoneInput = form.querySelector('[name="phone"]');
+
       // Проверка заполнения полей
-      if (!form.phone.value.trim()) {
+      if (!phoneInput || !phoneInput.value.trim()) {
         showToast('Пожалуйста, укажите номер телефона', 'error');
         return;
       }
-      
+
       // Показываем индикатор загрузки
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Отправка...';
       submitBtn.disabled = true;
-      
+
       // Создаем FormData
       const formData = new FormData();
-      formData.append('name', form.name.value || 'Не указано');
-      formData.append('phone', form.phone.value);
+      formData.append('name', nameInput && nameInput.value ? nameInput.value : 'Не указано');
+      formData.append('phone', phoneInput.value);
       formData.append('type', 'Обратный звонок (Почему доверяют)');
       formData.append('dateTime', new Date().toLocaleString());
       
@@ -246,7 +263,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Инициализация форм
-    handleForm("feedbackFormTop");
     handleForm("feedbackFormBottom");
     handleTestDriveForm();
     handleTrustCallbackForm();

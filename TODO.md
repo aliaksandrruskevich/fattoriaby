@@ -1,20 +1,17 @@
-# TODO: Fix Forms in ucherediteli.html
+# TODO: Оптимизация сайта АН ФАТТОРИЯ
 
-## Current Issue
-Forms in ucherediteli.html are not working because required JavaScript files are not loaded.
+## Выполненные задачи:
+- [x] Удалить файл index.html (простой вариант главной страницы)
+- [x] Проверить и удалить неиспользуемые CSS файлы:
+  - main-combined.css (не найден в HTML)
+  - index.css (не найден в HTML)
+- [x] Проверить дублирующие и неиспользуемые JS файлы - не найдены лишние
+- [x] Проверить папки с изображениями (фото/, дубравинский/), выявить и удалить неиспользуемые изображения
+  - Удалена папка дубравинский/ (не используется)
+  - Выявлены неиспользуемые изображения в фото/: foto14.jpg, foto17.jpg, foto18.jpg, фото 1.jpg, фото2.jpg, фото4.jpg, фото5.jpg, фото6.jpg, фото7.jpg, фото8.jpg, фото9.jpg, фото10.jpg, фото11.jpg, фото13.jpg
+- [x] Проверить ссылки и зависимости после удаления файлов, чтобы не сломать сайт - проверено, нет сломанных ссылок
+- [ ] Провести тестирование сайта после оптимизации
 
-## Analysis
-- ucherediteli.html has forms with IDs: feedbackFormTop, feedbackFormBottom, testDriveForm, trustCallbackForm
-- Required JS files: js/forms.js (handles form submission), js/toast.js (shows notifications)
-- Missing scripts in ucherediteli.html compared to other pages
-
-## Steps to Fix
-- [ ] Add missing script tags to ucherediteli.html
-- [ ] Add js/load-components.js
-- [ ] Add js/common.js
-- [ ] Add js/forms.js
-- [ ] Add js/toast.js
-- [ ] Test forms functionality
-
-## Files to Edit
-- ucherediteli.html: Add script tags before </body>
+## Примечание:
+- index1.html и index2.html оставить как отдельные варианты главной страницы
+- Обратить внимание на объединённые CSS и JS файлы, чтобы не удалить нужные
