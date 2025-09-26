@@ -40,20 +40,20 @@
   <!-- Основные стили -->
   <link rel="stylesheet" href="css/main.css">
   <!-- Yandex Maps API -->
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_REAL_API_KEY&lang=ru_RU" type="text/javascript"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_YANDEX_MAPS_API_KEY&lang=ru_RU" type="text/javascript"></script>
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <!-- Объединенные стили для index -->
   <link rel="stylesheet" href="css/index-combined.css">
 
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'YOUR_GA_TRACKING_ID');
   </script>
 </head>
 <body>
@@ -396,10 +396,10 @@
       </div>
       <div class="col-12">
         <div class="logos d-flex flex-wrap justify-content-center">
-          <img src="https://dummyimage.com/100x40/ccc/000.png&text=Partner+1" alt="Партнёр 1" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#trustModal" data-trust-type="partner1" loading="lazy">
-          <img src="https://dummyimage.com/100x40/ccc/000.png&text=Partner+2" alt="Партнёр 2" data-aos="zoom-in" data-aos-delay="200" data-bs-toggle="modal" data-bs-target="#trustModal" data-trust-type="partner2" loading="lazy">
-          <img src="https://dummyimage.com/100x40/ccc/000.png&text=Partner+3" alt="Партнёр 3" data-aos="zoom-in" data-aos-delay="400" data-bs-toggle="modal" data-bs-target="#trustModal" data-trust-type="partner3" loading="lazy">
-          <img src="https://dummyimage.com/100x40/ccc/000.png&text=Partner+4" alt="Партнёр 4" data-aos="zoom-in" data-aos-delay="600" data-bs-toggle="modal" data-bs-target="#trustModal" data-trust-type="partner4" loading="lazy">
+          <div class="partner-placeholder" data-aos="zoom-in">Партнёр 1</div>
+          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="200">Партнёр 2</div>
+          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="400">Партнёр 3</div>
+          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="600">Партнёр 4</div>
         </div>
       </div>
     </div>

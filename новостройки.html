@@ -66,7 +66,7 @@
                     </div>
                     <div class="project-actions">
                       <button class="btn btn-outline-warning btn-sm" onclick="openContactModal('ЖК Левада')">Бесплатная консультация</button>
-                      <a href="новостройки/жк-левада.html" class="btn btn-warning btn-sm">Подробнее</a>
+                      <a href="новостройки/жк-вершина.html" class="btn btn-warning btn-sm">Подробнее</a>
                     </div>
                   </div>
                 </div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="project-actions">
                       <button class="btn btn-outline-warning btn-sm" onclick="openContactModal('ЖК Дубравинский')">Бесплатная консультация</button>
-                      <a href="новостройки/жк-дубравинский.html" class="btn btn-warning btn-sm">Подробнее</a>
+                      <a href="новостройки/жк-зеленый.html" class="btn btn-warning btn-sm">Подробнее</a>
                     </div>
                   </div>
                 </div>
@@ -543,7 +543,7 @@
         }
       } catch (error) {
         console.error('Form submission error:', error);
-        alert('Произошла ошибка при отправке. Попробуйте еще раз.');
+        showToast('Произошла ошибка при отправке. Попробуйте еще раз.', 'error');
       } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
@@ -575,7 +575,7 @@
 
         return response.ok;
       } catch (error) {
-        console.log('Server save failed, using localStorage fallback');
+
         saveToLocalStorage(data);
         return false;
       }

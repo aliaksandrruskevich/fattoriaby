@@ -59,7 +59,6 @@ function handleTestDriveForm() {
             return response.text();
         })
         .then(data => {
-            console.log('Успех:', data);
             showToast('Спасибо! Ваша заявка отправлена. Наш агент свяжется с вами в течение 15 минут.');
             form.reset();
             // Закрываем модальное окно через 2 секунды
@@ -69,7 +68,6 @@ function handleTestDriveForm() {
             }, 2000);
         })
         .catch(error => {
-            console.error('Ошибка:', error);
             showToast('Ошибка при отправке. Попробуйте снова.', 'error');
         })
         .finally(() => {
@@ -118,12 +116,10 @@ function handleTrustCallbackForm() {
             return response.text();
         })
         .then(data => {
-            console.log('Успех:', data);
             showToast('Спасибо! Мы перезвоним вам в ближайшее время.');
             form.reset();
         })
         .catch(error => {
-            console.error('Ошибка:', error);
             showToast('Ошибка при отправке. Попробуйте снова.', 'error');
         })
         .finally(() => {
