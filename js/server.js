@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
 
   let filePath = path.join(baseDir, req.url);
   if (req.url === '/' || req.url === '') {
-    filePath = path.join(baseDir, 'index1.html');
+    filePath = path.join(baseDir, 'index.html');
   }
 
   const ext = path.extname(filePath).toLowerCase();

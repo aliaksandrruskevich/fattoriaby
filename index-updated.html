@@ -60,14 +60,12 @@
 
 <div id="header-placeholder"></div>
 
-
-
 <!-- Блок с большим выбором объектов -->
 <section class="big-choice">
   <div class="container big-choice-content">
     <h2 data-aos="fade-down">Большой выбор объектов недвижимости</h2>
     <p class="lead" data-aos="fade-up" data-aos-delay="200">Мы предлагаем лучшие варианты квартир, домов и коммерческой недвижимости в вашем городе</p>
-    
+
     <div class="row mt-5">
       <div class="col-md-3 col-sm-6" data-aos="slide-in-left" data-aos-delay="0" data-aos-duration="800">
         <div class="category-square">
@@ -110,7 +108,7 @@
         </div>
       </div>
     </div>
-    
+
     <button class="btn btn-warning btn-lg mt-4" data-aos="fade-up" data-aos-delay="800">Смотреть каталог</button>
   </div>
 </section>
@@ -150,7 +148,7 @@
     <h2 class="text-center mb-5" data-aos="fade-up">Специальные предложения</h2>
     <div class="row g-4">
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="0" data-type="квартира" data-district="центр" data-price="120000">
-        <div class="special-card clickable-card" onclick="openPropertyDetails('Квартира в центре', '120000', 'Просторная 3-комнатная квартира с ремонтом в историческом центре', 'квартира', 'центр')" style="cursor: pointer;">
+        <div class="special-card">
           <div class="position-relative">
             <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" class="special-img w-100" alt="Спецпредложение 1" loading="lazy">
             <span class="special-badge">Топ</span>
@@ -163,7 +161,7 @@
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" data-type="дом" data-district="экологический" data-price="250000">
-        <div class="special-card clickable-card" onclick="openPropertyDetails('Загородный дом', '250000', 'Уютный дом с участком в экологически чистом районе', 'дом', 'экологический')" style="cursor: pointer;">
+        <div class="special-card">
           <div class="position-relative">
             <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=784&q=80" class="special-img w-100" alt="Спецпредложение 2" loading="lazy">
             <span class="special-badge">Хит</span>
@@ -176,7 +174,7 @@
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="400" data-type="квартира" data-district="новый комплекс" data-price="95000">
-        <div class="special-card clickable-card" onclick="openPropertyDetails('Новая квартира', '95000', 'Современная квартира в новом жилом комплексе с отделкой', 'квартира', 'новый комплекс')" style="cursor: pointer;">
+        <div class="special-card">
           <div class="position-relative">
             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" class="special-img w-100" alt="Спецпредложение 3" loading="lazy">
             <span class="special-badge">Новинка</span>
@@ -195,7 +193,13 @@
   </div>
 </section>
 
-
+<!-- Наши объекты -->
+<section class="section" id="our-properties">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Наши объекты</h2>
+    <!-- Properties will be loaded here -->
+  </div>
+</section>
 
 <!-- Услуги агентства -->
 <section class="section black-section" id="services-agency">
@@ -348,7 +352,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Почему нам доверяют -->
     <div class="row mb-5">
       <div class="col-12 text-center mb-5">
@@ -373,7 +377,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Нам доверяют -->
     <div class="row mb-5">
       <div class="col-12 text-center mb-4">
@@ -388,7 +392,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Официальные партнёры -->
     <div class="row">
       <div class="col-12 text-center mb-4">
@@ -412,6 +416,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 <!-- AOS JS -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+<!-- Common JavaScript -->
+<script src="js/common.js" defer></script>
 <!-- Компонентный загрузчик -->
 <script src="js/load-components.js" defer></script>
 <!-- Объединенные скрипты для index -->
@@ -424,71 +430,37 @@
 <script src="js/filters.js" defer></script>
 <!-- Toast notifications -->
 <script src="js/toast.js" defer></script>
+<!-- Forms handling -->
+<script src="js/forms.js" defer></script>
+
 <!-- Yandex Map Initialization -->
 <style>
-/* Стили для кликабельных карточек специальных предложений */
-.clickable-card {
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
 }
 
-.clickable-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    border-color: #ffc107;
-    cursor: pointer;
+.property-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.clickable-card:hover .special-img {
-    transform: scale(1.05);
+.property-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 10px 0;
 }
 
-.clickable-card .special-img {
-    transition: transform 0.3s ease;
-}
-
-/* Стили для модального окна деталей объекта */
-.modal-content {
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.modal-header {
-    background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-    color: white;
-    border-radius: 15px 15px 0 0;
-    border: none;
-}
-
-.modal-title {
-    font-weight: 600;
-}
-
-.btn-warning {
-    background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-    border: none;
-    border-radius: 25px;
-    padding: 10px 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-warning:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
-}
-
-.btn-outline-primary {
-    border-radius: 25px;
-    padding: 10px 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+.property-address {
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
 }
 </style>
 <script>
@@ -513,70 +485,85 @@
     myMap.geoObjects.add(placemark2);
   }
 
-  // Функция для обработки клика по карточкам специальных предложений
-  function openPropertyDetails(title, price, description, type, district) {
-    // Создаем модальное окно с деталями объекта
-    const modalHtml = `
-      <div class="modal fade" id="propertyModal" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="propertyModalLabel">${title}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80"
-                       class="img-fluid rounded mb-3" alt="${title}" loading="lazy">
-                </div>
-                <div class="col-md-6">
-                  <h4 class="text-warning mb-3">${price} €</h4>
-                  <p><strong>Тип:</strong> ${type}</p>
-                  <p><strong>Район:</strong> ${district}</p>
-                  <p><strong>Описание:</strong> ${description}</p>
-                  <div class="mt-4">
-                    <button class="btn btn-warning me-2" onclick="showInterest('${title}')">Заказать звонок</button>
-                    <button class="btn btn-outline-primary" onclick="window.location.href='наши обьекты.html'">Смотреть все объекты</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
+// Функция для загрузки объектов с Realt.by
+async function loadRealtByProperties() {
+    try {
+        const response = await fetch('api-proxy.php');
+        const properties = await response.json();
 
-    // Удаляем существующее модальное окно, если оно есть
-    const existingModal = document.getElementById('propertyModal');
-    if (existingModal) {
-      existingModal.remove();
+        // Отображаем объекты в нужном разделе
+        displayProperties(properties);
+
+    } catch (error) {
+        console.error('Ошибка загрузки объектов:', error);
+        showTestData();
     }
+}
 
-    // Добавляем новое модальное окно
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
+// Функция для отображения объектов
+function displayProperties(properties) {
+    // Найди блок где показывать объекты (например, раздел "Наши объекты")
+    const container = document.getElementById('our-properties') ||
+                     document.querySelector('.properties-section');
 
-    // Показываем модальное окно
-    const modal = new bootstrap.Modal(document.getElementById('propertyModal'));
-    modal.show();
+    if (!container || !properties || properties.length === 0) return;
+
+    let html = '<h2>Актуальные объекты</h2><div class="properties-grid">';
+
+    properties.slice(0, 6).forEach(property => {
+        html += `
+
+            <div class="property-card">
+                <h3>${property.title || 'Объект недвижимости'}</h3>
+                <div class="property-price">${property.price || 'Цена по запросу'}</div>
+                <p>${property.description || ''}</p>
+                ${property.address ? `<div class="property-address">${property.address}</div>` : ''}
+            </div>
+        `;
+    });
+
+    html += '</div>';
+    container.innerHTML += html;
   }
+//  ВАЖНО: ДОБАВЬ ЭТУ СТРОКУ
+// Запускаем загрузку объектов при загрузке страницы
+document.addEventListener('DOMContentLoaded', loadRealtByProperties);
 
-  // Функция для показа интереса к объекту
-  function showInterest(propertyTitle) {
-    // Закрываем модальное окно с деталями
-    const propertyModal = bootstrap.Modal.getInstance(document.getElementById('propertyModal'));
-    if (propertyModal) {
-      propertyModal.hide();
+// Функция для тестовых данных (добавь на случай ошибки API)
+function showTestData() {
+    const testData = [
+        {
+            title: "Квартира в центре Минска",
+            price: "125 000 €",
+            description: "Уютная квартира с современным ремонтом"
+        },
+        {
+            title: "Дом в пригороде",
+            price: "275 000 €",
+            description: "Просторный дом с большим участком"
+        }
+    ];
+
+    const container = document.getElementById('our-properties') ||
+                     document.querySelector('.properties-section');
+
+    if (container) {
+        let html = '<h2>Наши объекты</h2><div class="properties-grid">';
+
+        testData.forEach(property => {
+            html += `
+                <div class="property-card">
+                    <h3>${property.title}</h3>
+                    <div class="property-price">${property.price}</div>
+                    <p>${property.description}</p>
+                </div>
+            `;
+        });
+
+        html += '</div>';
+        container.innerHTML = html;
     }
-
-    // Показываем уведомление об успешной отправке
-    showToast('Спасибо за интерес к объекту "' + propertyTitle + '"! Наш специалист свяжется с вами в ближайшее время.', 'success');
-
-    // Здесь можно добавить код для отправки данных на сервер
-    console.log('Пользователь заинтересован в объекте:', propertyTitle);
-  }
-
-
-</script>  <!-- Правильное закрытие тега -->
+}
+</script>
 </body>
 </html>

@@ -1,10 +1,5 @@
 /* Объединенный CSS файл */
 
-@import url('about.css');
-@import url('forms.css');
 @import url('index.css');
 @import url('modals.css');
-@import url('services.css');
-@import url('styles.css');
 @import url('tariffs.css');
-@import url('team.css');

@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
   let pathname = decodeURIComponent(parsedUrl.pathname);
 
   if (pathname === '/') {
-    pathname = '/index1.html'; // Default to index1.html or whatever your main file is
+    pathname = '/index.html'; // Serve index.html as main page
   }
 
   const filePath = path.join(__dirname, pathname);

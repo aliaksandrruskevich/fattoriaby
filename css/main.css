@@ -6,9 +6,10 @@
 /* Основные настройки */
 :root {
     --primary-color: #f707ff67;
-    --secondary-color: #6c757d;
+    --secondary-color: #ffd700;
     --dark-color: #212529;
     --light-color: #f8f9fa;
+    --bs-primary: var(--primary-color);
 }
 
 body {
@@ -490,16 +491,49 @@ header#main h1 {
 }
 
 .btn-warning {
-    background: linear-gradient(135deg, var(--primary-color), #ffb300);
+    background: linear-gradient(135deg, #f707ff, #ff9800);
     border: none;
     font-weight: 500;
     transition: all 0.3s ease;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 .btn-warning:hover {
-    background: linear-gradient(135deg, #ffb300, #ff9800);
+    background: linear-gradient(135deg, #ff9800, #f707ff);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+    box-shadow: 0 4px 12px rgba(247, 7, 255, 0.4);
+    color: #fff;
+}
+
+.btn-outline-warning {
+    color: #f707ff;
+    border-color: #f707ff;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    color: #fff;
+    border-color: #ff9800;
+    transform: translateY(-1px);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Apply gradient to all primary buttons for consistency */
+.btn-primary {
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff9800, #f707ff);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(247, 7, 255, 0.4);
+    color: #fff;
 }
 
 /* Списки */

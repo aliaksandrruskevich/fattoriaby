@@ -1,29 +1,73 @@
-// Общие функции для сайта (без обработки форм - это в forms.js)
+// Динамическая подгрузка навигации и других компонентов
 
-// Инициализация анимаций AOS
-function initAOS() {
-    AOS.init({ duration: 1000, once: true });
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // Подгрузка навигации из includes/header.html
+  fetch('includes/header.html')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Ошибка загрузки навигации');
+      }
+      return response.text();
+    })
+    .then(html => {
+      // Вставляем навигацию в элемент с id="header-placeholder"
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      if (headerPlaceholder) {
+        headerPlaceholder.innerHTML = html;
+        // Инициализируем обработчики форм после загрузки хедера
+        // Формы уже инициализированы в forms.js
+      }
+    })
+    .catch(error => {
+      console.error('Ошибка при загрузке навигации:', error);
+    });
 
-// Функция для загрузки и вставки HTML компонентов
-async function loadComponent(elementId, filePath) {
-    try {
-        const response = await fetch(filePath);
-        if (!response.ok) {
-            throw new Error(`Ошибка загрузки ${filePath}: ${response.status}`);
-        }
-        const html = await response.text();
-        document.getElementById(elementId).innerHTML = html;
-
-        // Формы обрабатываются в forms.js
-
-        // Инициализация AOS анимаций
+  // Подгрузка футера из includes/footer.html
+  fetch('includes/footer.html')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Ошибка загрузки футера');
+      }
+      return response.text();
+    })
+    .then(html => {
+      // Вставляем футер в элемент с id="footer-placeholder"
+      const footerPlaceholder = document.getElementById('footer-placeholder');
+      if (footerPlaceholder) {
+        footerPlaceholder.innerHTML = html;
+        // Инициализируем AOS после загрузки футера
         if (typeof AOS !== 'undefined') {
-            AOS.init({ duration: 1000, once: true });
+          AOS.init({ duration: 1000, once: true });
         }
+        // Инициализируем обработчики форм после загрузки футера
+        // Формы уже инициализированы в forms.js
+        // Инициализируем обработчики модальных окон
+        initializeModalHandlers();
+      }
+    })
+    .catch(error => {
+      console.error('Ошибка при загрузке футера:', error);
+    });
+});
 
-    } catch (error) {
-        console.error('Ошибка загрузки компонента:', error);
+// Функция для инициализации обработчиков модальных окон
+function initializeModalHandlers() {
+    // Добавляем обработчики событий для ссылок в футере после его загрузки
+    const privacyLink = document.querySelector('a[onclick="showPrivacyModal()"]');
+    const termsLink = document.querySelector('a[onclick="showTermsModal()"]');
+
+    if (privacyLink) {
+        privacyLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPrivacyModal();
+        });
+    }
+
+    if (termsLink) {
+        termsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showTermsModal();
+        });
     }
 }
 
@@ -152,18 +196,3 @@ function showTermsModal() {
     const modal = new bootstrap.Modal(document.getElementById('termsModal'));
     modal.show();
 }
-
-// Инициализация всех обработчиков после загрузки DOM
-document.addEventListener('DOMContentLoaded', function() {
-    initAOS();
-
-    // Формы обрабатываются в forms.js
-
-    // Автоматическая загрузка компонентов, если контейнеры существуют
-    if (document.getElementById('header-container')) {
-        loadComponent('header-container', 'includes/header.html');
-    }
-    if (document.getElementById('footer-container')) {
-        loadComponent('footer-container', 'includes/footer.html');
-    }
-});

@@ -37,7 +37,7 @@
           <div class="col-md-6">
             <h4>Оставьте заявку</h4>
             <p>Наш агент свяжется с вами в течение 15 минут</p>
-            <form id="testDriveForm">
+            <form id="testDriveForm" action="/api/submit-form.php" method="POST">
               <div class="mb-3">
                 <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
               </div>
@@ -93,13 +93,13 @@
 <!-- Навигация -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand text-white" href="index1.html">АН ФАТТОРИЯ</a>
+    <a class="navbar-brand text-white" href="index.html">АН ФАТТОРИЯ</a>
     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index1.html">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Недвижимость

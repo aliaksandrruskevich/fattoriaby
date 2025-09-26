@@ -11,18 +11,19 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Yandex Maps API -->
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU" type="text/javascript"></script>
+  <!--<script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU" type="text/javascript"></script>-->
+    <!-- Объединенные стили -->
+  <link rel="stylesheet" href="css/index-combined.css">
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/zagorodnaya-nedvizhimost.css">
+   <!-- Объединенные стили для index -->
+   <link rel="stylesheet" href="css/index-combined.css">
 </head>
 <body>
-<!--#include file="includes/header.html" -->
 
-
-
-
+<div id="header-placeholder"></div>
 
 <!-- Герой секция -->
 <section class="countryside-hero">
@@ -459,18 +460,17 @@
 
 
 
-<!--#include file="includes/footer.html" -->
+<div id="footer-placeholder"></div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AOS JS -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <!-- Загрузчик header -->
-<script src="js/header-loader.js"></script>
 <!-- Компонентный загрузчик -->
 <script src="js/load-components.js"></script>
-<!-- Объединенные скрипты для index1 -->
-<script src="js/index1-combined.js"></script>
+<!-- Объединенные скрипты для index -->
+<script src="js/index-combined.js"></script>
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <!-- Slider JS -->
@@ -509,12 +509,6 @@
 <!-- Main Combined JavaScript -->
 <script src="js/main-combined.js"></script>
 
-<!-- Плавающая кнопка чата Telegram -->
-<div class="telegram-chat-widget">
-  <a href="https://t.me/fattoriaminsk" target="_blank" class="telegram-chat-btn" title="Написать в Telegram">
-    <i class="fab fa-telegram-plane"></i>
-    <span class="chat-text">Чат</span>
-  </a>
-</div>
+
 </body>
 </html>
