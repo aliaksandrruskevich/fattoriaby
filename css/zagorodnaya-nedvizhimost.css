@@ -1,0 +1,472 @@
+/* Стили для страницы загородной недвижимости */
+
+/* Герой секция */
+.countryside-hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 120px 0 80px;
+    margin-top: -76px;
+}
+
+.countryside-hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.countryside-hero p {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Категории загородной недвижимости */
+.categories-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1.5rem;
+    height: 300px;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem 1.5rem;
+}
+
+.category-overlay h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.category-overlay p {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Фильтры */
+.filter-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+}
+
+.filter-group {
+    margin-bottom: 1.5rem;
+}
+
+.filter-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.price-range {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Вид объектов */
+.view-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.view-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e9ecef;
+    background: white;
+    color: #6c757d;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.view-btn:hover {
+    border-color: #f707ff;
+    color: #f707ff;
+}
+
+.view-btn.active {
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    border-color: #f707ff;
+    color: white;
+}
+
+/* Контейнер объектов */
+.properties-container {
+    position: relative;
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* Карточки объектов */
+.property-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.property-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.property-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.badge-primary {
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    color: white;
+}
+
+.badge-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+.badge-info {
+    background: linear-gradient(135deg, #17a2b8, #6f42c1);
+    color: white;
+}
+
+.badge-warning {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: #212529;
+}
+
+.property-details {
+    padding: 1.5rem;
+}
+
+.property-details h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.property-details p {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.property-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f707ff;
+    margin-bottom: 1rem;
+}
+
+.property-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.property-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.property-features i {
+    width: 20px;
+    margin-right: 0.5rem;
+    color: #f707ff;
+}
+
+.property-details .btn {
+    margin-right: 0.5rem;
+}
+
+/* Вид списка */
+.properties-list .properties-grid {
+    grid-template-columns: 1fr;
+}
+
+.properties-list .property-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.properties-list .property-img {
+    width: 300px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.properties-list .property-details {
+    flex: 1;
+    padding: 1rem 1.5rem;
+}
+
+/* Преимущества */
+.advantage-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 5px 15px rgba(247, 7, 255, 0.3);
+}
+
+/* Заголовки секций */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Форма обратной связи */
+.contact-form-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.contact-form-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.contact-form-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Кнопка "Наверх" */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(247, 7, 255, 0.4);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(247, 7, 255, 0.5);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .countryside-hero {
+        padding: 100px 0 60px;
+    }
+
+    .countryside-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .countryside-hero p {
+        font-size: 1.1rem;
+    }
+
+    .categories-section {
+        padding: 60px 0;
+    }
+
+    .category-card {
+        height: 250px;
+        margin-bottom: 1rem;
+    }
+
+    .filter-section {
+        padding: 2rem;
+    }
+
+    .properties-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .properties-list .property-card {
+        flex-direction: column;
+    }
+
+    .properties-list .property-img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-form-section h2 {
+        font-size: 2rem;
+    }
+
+    .view-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .view-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .countryside-hero h1 {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .properties-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+/* Пагинация */
+.pagination {
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.page-link {
+    color: #f707ff;
+    border-color: #f707ff;
+    padding: 0.75rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+}
+
+.page-link:hover {
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    border-color: #f707ff;
+    color: white;
+}
+
+.page-item.active .page-link {
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    border-color: #f707ff;
+    color: white;
+}
+
+/* Кастомные кнопки */
+.btn-primary-custom {
+    background: linear-gradient(135deg, #f707ff, #ff9800);
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary-custom:hover {
+    background: linear-gradient(135deg, #ff9800, #f707ff);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(247, 7, 255, 0.4);
+    color: white;
+    text-decoration: none;
+}
