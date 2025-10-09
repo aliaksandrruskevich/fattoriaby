@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
       propertiesContainer.innerHTML = '<div class="text-center py-5"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Загрузка...</span></div><p class="mt-2">Загружаем объекты недвижимости...</p></div>';
 
       // Исправленный fetch запрос
-      const response = await fetch('http://localhost:3000/api/properties.php');
+      const response = await fetch('../api/properties.php');
       
       if (!response.ok) {
         throw new Error(`HTTP ошибка: ${response.status}`);

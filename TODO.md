@@ -1,9 +1,6 @@
-# TODO: Исправление формы обратной связи
-
-## Текущий план
-- [ ] Отредактировать js/forms.js: Обновить функцию validateForm, чтобы проверка чекбокса была условной (if (agreeCheckbox && !agreeCheckbox.checked)).
-- [ ] Протестировать отправку формы на blog.html, чтобы убедиться, что она работает без ошибок (отправка в Google Apps Script).
-
-## Следующие шаги после завершения
-- [ ] Проверить другие формы на сайте.
-- [ ] Если нужно, добавить чекбокс согласия в формы для юридической соответствия.
+- [x] Update .tariff-section background to #000
+- [x] Update .tariff-table background to #000
+- [x] Add background: #000; color: white; to .tariff-table th, .tariff-table td
+- [x] Remove specific .tariff-table th background and color
+- [x] Remove .tariff-table tr:nth-child(even) background
+- [x] Update .tariff-note color to white

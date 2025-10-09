@@ -1,9 +1,20 @@
+body {
+  background: black;
+  color: white;
+}
+
+table, th, td {
+  color: black !important;
+  text-shadow: none !important;
+}
+
 .calculator-card {
-  background: white;
+  background: #222;
   border-radius: 15px;
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   margin-bottom: 2rem;
+  color: white;
 }
 
 .result-card {
@@ -48,12 +59,16 @@
   color: #fff;
 }
 
+.form-label {
+  color: white;
+}
+
 .slider {
   -webkit-appearance: none;
   width: 100%;
   height: 8px;
   border-radius: 5px;
-  background: #ddd;
+  background: #555;
   outline: none;
 }
 
@@ -77,6 +92,7 @@
 }
 
 .input-group-text {
-  background: #f8f9fa;
-  border-color: #dee2e6;
+  background: #333;
+  border-color: #555;
+  color: white;
 }

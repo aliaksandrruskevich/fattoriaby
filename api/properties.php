@@ -1,6 +1,6 @@
 <?php
 // Файл api/properties.php
-// Этот скрипт будет выступать прокси для интеграции с внешним API и обработки данных
+// Прокси для интеграции с Realt.by API, преобразование XML в JSON для JS
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -16,18 +16,27 @@ function fetchData($url) {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30); // Увеличено для большого ответа
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'); // Мимик браузера
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $curlError = curl_error($ch);
         curl_close($ch);
         if ($response === false || $httpCode !== 200) {
+            error_log('Ошибка получения данных с API: ' . $curlError . ' (HTTP ' . $httpCode . ')');
             return false;
         }
         return $response;
     } else {
-        $response = @file_get_contents($url);
+        $context = stream_context_create([
+            'http' => [
+                'timeout' => 30,
+                'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            ]
+        ]);
+        $response = @file_get_contents($url, false, $context);
         if ($response === false) {
+            error_log('Ошибка file_get_contents с API');
             return false;
         }
         return $response;
@@ -37,8 +46,7 @@ function fetchData($url) {
 $response = fetchData($apiUrl);
 
 if ($response === false) {
-    // Логируем ошибку (можно расширить для записи в файл)
-    error_log('Ошибка получения данных с внешнего API: ' . $apiUrl);
+    error_log('Не удалось получить данные с Realt.by API');
     // Возвращаем мок-данные
     $mockData = [
         [
@@ -96,15 +104,79 @@ if ($xml === false) {
     exit;
 }
 
-// Преобразуем XML в массив
-$json = json_encode($xml);
-$data = json_decode($json, true);
+// Преобразуем в массив объектов
+$properties = [];
+$limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 20; // Ограничение для производительности
+$count = 0;
 
-// Проверяем наличие записей
-if (!isset($data['record']) || !is_array($data['record'])) {
-    error_log('Нет данных в ответе API');
-    // Возвращаем мок-данные
-    $mockData = [
+foreach ($xml->records->record as $record) {
+    if ($count >= $limit) break;
+
+    // Фильтры: активные, на продажу, с ценой
+    $archive = (int)$record->archive;
+    $terms = (string)$record->terms;
+    $price = (int)$record->price;
+
+    if ($archive !== 0 || !in_array($terms, ['ч', 'пр']) || $price <= 0) {
+        continue;
+    }
+
+    // Сбор фото
+    $photos = [];
+    if (isset($record->photos->photo)) {
+        foreach ($record->photos->photo as $photo) {
+            $photos[] = (string)$photo['picture'];
+            if (count($photos) >= 10) break; // Ограничение фото
+        }
+    }
+
+    // Сбор характеристик
+    $features = [];
+    if (!empty($record->rooms)) $features[] = "Комнаты: " . (string)$record->rooms;
+    if (!empty($record->area_total)) $features[] = "Площадь: " . (string)$record->area_total . " м²";
+    if (!empty($record->area_living)) $features[] = "Жилая: " . (string)$record->area_living . " м²";
+    if (!empty($record->area_kitchen)) $features[] = "Кухня: " . (string)$record->area_kitchen . " м²";
+    if (!empty($record->building_year)) $features[] = "Год: " . (string)$record->building_year;
+    if (!empty($record->heating_expanded)) $features[] = "Отопление: " . (string)$record->heating_expanded;
+    if (!empty($record->storey) && !empty($record->storeys)) $features[] = "Этаж: " . (string)$record->storey . "/" . (string)$record->storeys;
+    if (!empty($record->house_type_expanded)) $features[] = "Тип дома: " . (string)$record->house_type_expanded;
+    if (!empty($record->repair_state_expanded)) $features[] = "Ремонт: " . (string)$record->repair_state_expanded;
+
+    // Локация
+    $location = '';
+    if (!empty($record->town_name)) {
+        $location = (string)$record->town_name;
+        if (!empty($record->street_name)) $location .= ', ' . (string)$record->street_name;
+        if (!empty($record->house_number)) $location .= ' ' . (string)$record->house_number;
+    } elseif (!empty($record->state_district_name)) {
+        $location = (string)$record->state_district_name;
+    } else {
+        $location = (string)$record->state_region_name;
+    }
+
+    // Описание (убираем HTML-теги)
+    $description = html_entity_decode(strip_tags((string)$record->description));
+
+    // Заголовок
+    $title = (string)$record->object_type_expanded . ' #' . (string)$record->code;
+
+    $properties[] = [
+        "title" => $title,
+        "location" => $location,
+        "price" => $price,
+        "type" => (string)$record->object_type_expanded,
+        "description" => $description,
+        "features" => $features,
+        "photos" => $photos
+    ];
+
+    $count++;
+}
+
+// Возвращаем данные
+if (empty($properties)) {
+    // Мок-данные если ничего не подошло
+    $properties = [
         [
             "title" => "Квартира в центре Минска",
             "location" => "Минск, Центр",
@@ -124,40 +196,7 @@ if (!isset($data['record']) || !is_array($data['record'])) {
             "photos" => ["https://via.placeholder.com/400x300?text=Property+2"]
         ]
     ];
-    echo json_encode($mockData);
-    exit;
 }
 
-// Фильтрация объектов с ценой больше 0 (если поле price есть)
-$filteredData = array_filter($data['record'], function($item) {
-    return isset($item['price']) && floatval($item['price']) > 0;
-});
-
-// Возвращаем обработанные данные клиенту
-if (empty($filteredData)) {
-    // Возвращаем мок-данные
-    $mockData = [
-        [
-            "title" => "Квартира в центре Минска",
-            "location" => "Минск, Центр",
-            "price" => 120000,
-            "type" => "Квартира",
-            "description" => "Уютная квартира с современным ремонтом.",
-            "features" => ["3 комнаты", "Балкон", "Ремонт"],
-            "photos" => ["https://via.placeholder.com/400x300?text=Property+1"]
-        ],
-        [
-            "title" => "Дом в пригороде",
-            "location" => "Минский район",
-            "price" => 250000,
-            "type" => "Дом",
-            "description" => "Просторный дом с большим участком.",
-            "features" => ["5 комнат", "Гараж", "Сад"],
-            "photos" => ["https://via.placeholder.com/400x300?text=Property+2"]
-        ]
-    ];
-    echo json_encode($mockData);
-} else {
-    echo json_encode(array_values($filteredData));
-}
+echo json_encode($properties);
 ?>

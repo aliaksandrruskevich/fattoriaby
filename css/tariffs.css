@@ -27,7 +27,6 @@ header {
 
 header h1 {
   font-size: 48px;
-  background: rgba(0,0,0,0.5);
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 30px;
@@ -87,7 +86,7 @@ nav a.nav-link:hover {
 
 /* Новые стили для таблиц тарифов */
 .tariff-section {
-  background: #1a1a1a;
+  background: #000;
   padding: 40px 20px;
   border-radius: 8px;
   margin-bottom: 40px;
@@ -97,28 +96,25 @@ nav a.nav-link:hover {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
-  background: #222;
+  background: #000;
 }
 
 .tariff-table th, .tariff-table td {
   border: 1px solid #444;
   padding: 12px;
   text-align: center;
+  background: #000;
+  color: black;
+  text-shadow: none;
 }
 
 .tariff-table th {
-  background: #333;
-  color: #f0ad4e;
   font-weight: bold;
-}
-
-.tariff-table tr:nth-child(even) {
-  background: #252525;
 }
 
 .tariff-note {
   font-size: 14px;
-  color: #ccc;
+  color: white;
   margin-top: 15px;
   font-style: italic;
 }

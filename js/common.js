@@ -160,10 +160,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Формы обрабатываются в forms.js
 
     // Автоматическая загрузка компонентов, если контейнеры существуют
-    if (document.getElementById('header-container')) {
-        loadComponent('header-container', 'includes/header.html');
+    if (document.getElementById('header-placeholder')) {
+        loadComponent('header-placeholder', 'includes/header.html');
     }
-    if (document.getElementById('footer-container')) {
-        loadComponent('footer-container', 'includes/footer.html');
+    if (document.getElementById('footer-placeholder')) {
+        loadComponent('footer-placeholder', 'includes/footer.html');
     }
 });

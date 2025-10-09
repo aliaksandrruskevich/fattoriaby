@@ -37,27 +37,26 @@ function clearFieldError(field) {
 function validateForm(form) {
   let isValid = true;
 
-  const nameField = form.querySelector('input[name="name"]');
+  const nameField = form.querySelector('input[placeholder*="имя"]') || form.name;
   if (nameField && nameField.value.trim().length < 2) {
     showFieldError(nameField, 'Имя должно содержать минимум 2 символа');
     isValid = false;
   }
 
-  const phoneField = form.querySelector('input[name="phone"]');
+  const phoneField = form.querySelector('input[type="tel"]') || form.phone;
   if (phoneField && !validatePhone(phoneField.value)) {
     showFieldError(phoneField, 'Введите корректный номер телефона');
     isValid = false;
   }
 
-  const emailField = form.querySelector('input[name="email"]');
+  const emailField = form.querySelector('input[type="email"]') || form.email;
   if (emailField && emailField.value && !validateEmail(emailField.value)) {
     showFieldError(emailField, 'Введите корректный email адрес');
     isValid = false;
   }
 
-  const requestField = form.querySelector('input[name="request"]');
-  if (requestField && requestField.value.trim().length < 5) {
-    showFieldError(requestField, 'Описание должно содержать минимум 5 символов');
+  if (form.request && form.request.value.trim().length < 5) {
+    showFieldError(form.request, 'Описание должно содержать минимум 5 символов');
     isValid = false;
   }
 
@@ -123,19 +122,18 @@ function handleFormSubmission(e) {
   submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Отправка...';
   submitBtn.disabled = true;
 
-  const nameField = form.querySelector('input[name="name"]');
-  const phoneField = form.querySelector('input[name="phone"]');
-  const emailField = form.querySelector('input[name="email"]');
-  const requestField = form.querySelector('input[name="request"]');
+  const nameField = form.querySelector('input[placeholder*="имя"]') || form.name;
+  const phoneField = form.querySelector('input[type="tel"]') || form.phone;
+  const emailField = form.querySelector('input[type="email"]') || form.email;
 
   const formData = new FormData();
   formData.append('name', nameField ? nameField.value.trim() : '');
   formData.append('phone', phoneField ? phoneField.value.trim() : '');
 
-  if (emailField && emailField.value.trim()) formData.append('email', emailField.value.trim());
-  if (requestField && requestField.value.trim()) formData.append('request', requestField.value.trim());
-  if (form.comments && form.comments.value.trim()) formData.append('comments', form.comments.value.trim());
-  if (form.address && form.address.value.trim()) formData.append('address', form.address.value.trim());
+  if (emailField && emailField.value) formData.append('email', emailField.value.trim());
+  if (form.request && form.request.value) formData.append('request', form.request.value.trim());
+  if (form.comments && form.comments.value) formData.append('request', form.comments.value.trim());
+  if (form.address && form.address.value) formData.append('address', form.address.value.trim());
   if (form.loanAmount && form.loanAmount.value) formData.append('loanAmount', form.loanAmount.value);
   if (form.type && form.type.value) formData.append('propertyType', form.type.value);
   if (form.area && form.area.value) formData.append('area', form.area.value);
@@ -183,33 +181,11 @@ function handleFormSubmission(e) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const feedbackForms = [
-    'feedbackFormTop',
-    'feedbackFormBottom',
-    'testDriveForm',
-    'trustCallbackForm',
-    'countrysideForm',
-    'calculatorForm',
-    'mortgageForm',
-    'qualityForm',
-    'filterForm',
-    'newsletterForm',
-    'contactForm',
-    'sellerForm',
-    'buyerForm',
-    'propertyInterestForm'
-  ];
-  feedbackForms.forEach(formId => {
-    const form = document.getElementById(formId);
-    if (form) {
-      form.addEventListener('submit', handleFormSubmission);
-    }
-  });
-
-  // Add event listeners to all forms with class 'contact-form'
-  const contactForms = document.querySelectorAll('.contact-form');
-  contactForms.forEach(form => {
-    form.addEventListener('submit', handleFormSubmission);
-  });
+document.addEventListener('submit', function(e) {
+  const form = e.target;
+  const formIds = ['feedbackFormTop', 'feedbackFormBottom', 'testDriveForm', 'trustCallbackForm', 'countrysideForm', 'calculatorForm', 'mortgageForm', 'qualityForm', 'filterForm', 'newsletterForm', 'contactForm', 'sellerForm', 'buyerForm', 'propertyInterestForm'];
+  if (formIds.some(id => form.id === id) || form.classList.contains('contact-form')) {
+    e.preventDefault();
+    handleFormSubmission(e);
+  }
 });

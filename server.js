@@ -13,12 +13,24 @@ const server = http.createServer((req, res) => {
     pathname = '/index.html'; // Serve index.html as main page
   }
 
-  const filePath = path.join(__dirname, pathname);
+  let filePath;
+  // Serve top-level HTML pages from public/, others from root
+  if (path.extname(pathname) === '.html') {
+    // Check if pathname is top-level (no additional slashes after initial)
+    const topLevelMatch = pathname.match(/^\/[^\/]+\.html$/);
+    if (topLevelMatch) {
+      filePath = path.join(__dirname, 'public', pathname);
+    } else {
+      filePath = path.join(__dirname, pathname);
+    }
+  } else {
+    filePath = path.join(__dirname, pathname);
+  }
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
       // Serve 404.html if file not found
-      const notFoundPath = path.join(__dirname, '404.html');
+      const notFoundPath = path.join(__dirname, 'public', '404.html');
       fs.readFile(notFoundPath, (err404, data404) => {
         if (err404) {
           res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -46,6 +58,12 @@ const server = http.createServer((req, res) => {
       case '.jpg':
       case '.jpeg':
         contentType = 'image/jpeg';
+        break;
+      case '.pdf':
+        contentType = 'application/pdf';
+        break;
+      case '.php':
+        contentType = 'text/html'; // PHP will be handled by hosting, but for local Node, serve as text
         break;
       // Add more as needed
     }
