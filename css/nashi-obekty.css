@@ -13,10 +13,11 @@
 }
 
 .filter-section {
-  background-color: white;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
   margin-top: -50px;
   position: relative;
   z-index: 100;
@@ -29,12 +30,14 @@
   transition: transform 0.3s;
   margin-bottom: 30px;
   height: 100%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
+  color: #e0e0e0;
 }
 
 .property-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
 }
 
 .property-img {
@@ -109,8 +112,9 @@
 
 .view-btn {
   padding: 10px 20px;
-  border: 2px solid #ddd;
-  background: white;
+  border: 2px solid #444;
+  background: #1a1a1a;
+  color: #e0e0e0;
   margin: 0 5px;
   border-radius: 5px;
   cursor: pointer;

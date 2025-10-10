@@ -15,7 +15,8 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #e0e0e0;
+    background-color: #000;
     padding-top: 76px; /* Для фиксированной навигации */
 }
 
@@ -109,7 +110,7 @@ header#main h1 {
 /* Категории недвижимости */
 .big-choice {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: #000;
 }
 
 .category-square {
@@ -163,9 +164,10 @@ header#main h1 {
 .special-card {
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
     transition: transform 0.3s ease;
-    background: white;
+    background: #1a1a1a;
+    color: #e0e0e0;
 }
 
 .special-card:hover {
@@ -383,18 +385,20 @@ header#main h1 {
 /* Секции */
 .section {
     padding: 80px 0;
+    background: #000;
+    color: #e0e0e0;
 }
 
 /* Улучшение читаемости текста в разделе Тест-драйв */
 #services {
-    background-color: #e9ecef !important;
-    color: #212529 !important; /* темный цвет текста */
+    background-color: #000 !important;
+    color: #e0e0e0 !important;
 }
 
 #services h2,
 #services p,
 #services button {
-    color: #212529 !important;
+    color: #e0e0e0 !important;
 }
 
 /* Анимация для круга 10 дней */
@@ -422,7 +426,7 @@ header#main h1 {
     font-size: 2rem;
     margin: 0 auto 1rem;
     text-align: center;
-    background: white;
+    background: #1a1a1a;
     box-shadow: 0 0 15px #ff9800;
 }
 
@@ -434,13 +438,13 @@ header#main h1 {
 /* Улучшение читаемости кнопки в разделе Тест-драйв */
 #services .btn {
     color: white !important;
-    background-color: #000 !important;
-    border-color: #000 !important;
+    background-color: #333 !important;
+    border-color: #333 !important;
 }
 
 #services .btn:hover {
-    background-color: #333 !important;
-    border-color: #333 !important;
+    background-color: #555 !important;
+    border-color: #555 !important;
 }
 
 /* Адаптивность */
@@ -729,8 +733,9 @@ ul li {
     text-align: center;
     padding: 2rem;
     border-radius: 15px;
-    background: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: #1a1a1a;
+    color: #e0e0e0;
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
     transition: transform 0.3s ease;
 }
 
@@ -751,8 +756,9 @@ ul li {
 .tariff-card {
     border-radius: 15px;
     padding: 2rem;
-    background: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: #1a1a1a;
+    color: #e0e0e0;
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -785,10 +791,11 @@ ul li {
 
 /* Стили для информации */
 .info-card {
-    background: white;
+    background: #1a1a1a;
+    color: #e0e0e0;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
     margin-bottom: 2rem;
 }
 
@@ -801,10 +808,11 @@ ul li {
 .congratulation-form {
     max-width: 600px;
     margin: 0 auto;
-    background: white;
+    background: #1a1a1a;
+    color: #e0e0e0;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
 }
 
 /* Улучшенная анимация для AOS */
@@ -818,7 +826,7 @@ ul li {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {

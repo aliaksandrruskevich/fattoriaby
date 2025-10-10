@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Подгрузка навигации из includes/header.html
-  fetch('../includes/header.html')
+  fetch('/includes/header.html')
     .then(response => {
       if (!response.ok) {
         throw new Error('Ошибка загрузки навигации');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // Подгрузка футера из includes/footer.html
-  fetch('../includes/footer.html')
+  fetch('/includes/footer.html')
     .then(response => {
       if (!response.ok) {
         throw new Error('Ошибка загрузки футера');

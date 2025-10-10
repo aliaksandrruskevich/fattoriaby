@@ -7,6 +7,8 @@ body {
   scroll-behavior: smooth;
   font-family: Arial, sans-serif;
   padding-top: 80px; /* Padding for fixed navbar */
+  background-color: #000;
+  color: #e0e0e0;
 }
 
 .container {
@@ -37,6 +39,8 @@ header h1 {
   padding: var(--section-padding);
   position: relative;
   overflow: hidden;
+  background: #000;
+  color: #e0e0e0;
 }
 
 .section-bg {
@@ -97,11 +101,12 @@ nav a.nav-link:hover {
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(26, 26, 26, 0.9);
   padding: 30px;
   border-radius: 8px;
   text-align: center;
   height: 100%;
+  color: #e0e0e0;
 }
 
 .dark-card {
@@ -298,6 +303,8 @@ nav a.nav-link:hover {
 .modal-content {
   border-radius: 10px;
   overflow: hidden;
+  background: #1a1a1a;
+  color: #e0e0e0;
 }
 
 .modal-header {
@@ -308,6 +315,8 @@ nav a.nav-link:hover {
 
 .modal-body {
   padding: 20px;
+  background: #1a1a1a;
+  color: #e0e0e0;
 }
 
 @media (max-width: 992px) {

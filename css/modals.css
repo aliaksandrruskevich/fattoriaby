@@ -2,13 +2,13 @@
 .test-drive-modal .modal-content {
     border-radius: 15px;
     overflow: hidden;
-    background: linear-gradient(135deg, #a64ca6, #f0a0f0);
-    color: white;
+    background: #1a1a1a;
+    color: #e0e0e0;
 }
 
 .test-drive-header {
     background: transparent;
-    color: white;
+    color: #e0e0e0;
     padding: 20px;
     text-align: center;
 }
@@ -17,6 +17,8 @@
     padding: 30px;
     display: flex;
     gap: 20px;
+    background: #1a1a1a;
+    color: #e0e0e0;
 }
 
 .benefit-item {
@@ -40,13 +42,14 @@
 /* Исправление выравнивания формы тест-драйва */
 #testDriveForm {
     flex: 1;
-    color: white;
+    color: #e0e0e0;
 }
 
 #testDriveForm .form-control {
     margin-bottom: 15px;
-    background: white;
-    color: black;
+    background: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
 }
 
 #testDriveForm button {
@@ -68,6 +71,8 @@
 .team-modal .modal-content {
     border-radius: 15px;
     overflow: hidden;
+    background: #1a1a1a;
+    color: #e0e0e0;
 }
 
 .team-modal-header {
@@ -79,6 +84,8 @@
 
 .team-modal-body {
     padding: 30px;
+    background: #1a1a1a;
+    color: #e0e0e0;
 }
 
 .modal-agent-img {
@@ -93,7 +100,8 @@
 }
 
 .modal-agent-contact {
-    background: #f8f9fa;
+    background: #333;
+    color: #e0e0e0;
     border-radius: 8px;
     padding: 20px;
     margin-top: 20px;

@@ -28,7 +28,8 @@
 /* Категории загородной недвижимости */
 .categories-section {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: #000;
+    color: #e0e0e0;
 }
 
 .category-card {
@@ -82,10 +83,11 @@
 
 /* Фильтры */
 .filter-section {
-    background: white;
+    background: #1a1a1a;
+    color: #e0e0e0;
     padding: 3rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
     margin-bottom: 3rem;
 }
 
@@ -116,9 +118,9 @@
 
 .view-btn {
     padding: 0.75rem 1.5rem;
-    border: 2px solid #e9ecef;
-    background: white;
-    color: #6c757d;
+    border: 2px solid #444;
+    background: #1a1a1a;
+    color: #e0e0e0;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -149,17 +151,18 @@
 
 /* Карточки объектов */
 .property-card {
-    background: white;
+    background: #1a1a1a;
+    color: #e0e0e0;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 2rem;
 }
 
 .property-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(255,255,255,0.15);
 }
 
 .property-img {
