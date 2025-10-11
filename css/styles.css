@@ -116,7 +116,7 @@ nav a.nav-link:hover {
 
 /* Новые стили для объединенного футера */
 .combined-footer {
-  background: url('https://i.pinimg.com/736x/ac/d0/49/acd0494a3485adf2fe584066b74b38e0.jpg') center/cover no-repeat;
+  background: url('../фото/фото9.jpg') center/cover no-repeat;
   color: white;
   position: relative;
 }

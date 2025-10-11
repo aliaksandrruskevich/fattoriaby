@@ -1,0 +1,102 @@
+/* Стили для страницы тарифов */
+
+/* Стили для секций тарифов */
+.tariff-section {
+  background: #1a1a1a;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.tariff-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: #222;
+}
+
+.tariff-table th, .tariff-table td {
+  border: 1px solid #555;
+  padding: 12px;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.tariff-table th {
+  background: #333;
+  color: #f0ad4e;
+  font-weight: bold;
+}
+
+.tariff-table tr:nth-child(even) {
+  background: #252525;
+}
+
+.tariff-note {
+  font-size: 14px;
+  color: #c0c0c0;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Стили для калькулятора */
+.card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #e0e0e0;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.form-label {
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #e0e0e0;
+}
+
+.form-control:focus {
+  background-color: #333;
+  border-color: #f0ad4e;
+  color: #e0e0e0;
+  box-shadow: 0 0 0 0.2rem rgba(240, 173, 78, 0.25);
+}
+
+.form-select {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #e0e0e0;
+}
+
+.form-select:focus {
+  background-color: #333;
+  border-color: #f0ad4e;
+  color: #e0e0e0;
+  box-shadow: 0 0 0 0.2rem rgba(240, 173, 78, 0.25);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.result-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0ad4e;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}

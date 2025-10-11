@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Загородная недвижимость | АН ФАТТОРИЯ</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Modern Real Estate Styles -->
+  <link rel="stylesheet" href="/css/modern-real-estate.css">
+  <link rel="stylesheet" href="/css/zagorodnaya-nedvizhimost.css">
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<!-- Modern Hero Section -->
+<section class="modern-hero countryside-hero">
+  <div class="container">
+    <div class="modern-hero-content text-center">
+      <h1 class="display-4 fw-bold mb-4 float-animation" data-aos="fade-down">Загородная недвижимость</h1>
+      <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">Уютные дома и коттеджи в живописных местах под Минском</p>
+      <a href="#properties" class="btn-modern pulse-glow" data-aos="zoom-in" data-aos-delay="400">
+        <span>Смотреть предложения</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Modern Categories -->
+<section class="py-5" id="categories">
+  <div class="container">
+    <h2 class="text-center section-title mb-5" data-aos="fade-up">Категории загородной недвижимости</h2>
+    <div class="modern-grid">
+      <div class="glass-card category-card interactive-element" data-aos="fade-up" data-aos-delay="0">
+        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Коттеджи">
+        <div class="category-overlay">
+          <h3>Коттеджи</h3>
+          <p>от 200 000 $</p>
+          <a href="#cottages" class="btn btn-outline-light">Смотреть</a>
+        </div>
+      </div>
+      <div class="glass-card category-card interactive-element" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Дачи">
+        <div class="category-overlay">
+          <h3>Дачи</h3>
+          <p>от 50 000 $</p>
+          <a href="#dachas" class="btn btn-outline-light">Смотреть</a>
+        </div>
+      </div>
+      <div class="glass-card category-card interactive-element" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Земельные участки">
+        <div class="category-overlay">
+          <h3>Земельные участки</h3>
+          <p>от 20 000 $</p>
+          <a href="#plots" class="btn btn-outline-light">Смотреть</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modern Filters -->
+<section class="container" id="properties">
+  <div class="modern-filter-section glass-card" data-aos="fade-up">
+    <h4 class="mb-4">Подбор параметров</h4>
+    <form id="propertyFilters">
+      <div class="row">
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Тип объекта</label>
+          <div class="filter-chips-container" data-category="type">
+            <button class="filter-chip" data-value="cottage">Коттедж</button>
+            <button class="filter-chip" data-value="dacha">Дача</button>
+            <button class="filter-chip" data-value="townhouse">Таунхаус</button>
+            <button class="filter-chip" data-value="plot">Участок</button>
+          </div>
+        </div>
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Направление</label>
+          <div class="filter-chips-container" data-category="direction">
+            <button class="filter-chip" data-value="minskoe-more">Минское море</button>
+            <button class="filter-chip" data-value="borovlyany">Боровляны</button>
+            <button class="filter-chip" data-value="raubichi">Раубичи</button>
+            <button class="filter-chip" data-value="zdanovichi">Ждановичи</button>
+          </div>
+        </div>
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Расстояние от Минска</label>
+          <div class="filter-chips-container" data-category="distance">
+            <button class="filter-chip" data-value="0-10">до 10 км</button>
+            <button class="filter-chip" data-value="10-20">10-20 км</button>
+            <button class="filter-chip" data-value="20-30">20-30 км</button>
+            <button class="filter-chip" data-value="30-50">30-50 км</button>
+          </div>
+        </div>
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Цена, $</label>
+          <input type="range" class="modern-range-slider" min="0" max="1000000" step="10000" id="priceRange">
+          <div class="d-flex justify-content-between">
+            <span id="minPrice">0</span>
+            <span id="maxPrice">1 000 000</span>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Площадь дома, м²</label>
+          <div class="row">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="от" id="minArea">
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" placeholder="до" id="maxArea">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Участок, соток</label>
+          <div class="row">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="от" id="minPlot">
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" placeholder="до" id="maxPlot">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 filter-group">
+          <label class="form-label">Коммуникации</label>
+          <div class="d-flex flex-wrap">
+            <div class="form-check me-3">
+              <input class="form-check-input" type="checkbox" id="waterCheck" value="water">
+              <label class="form-check-label" for="waterCheck">Вода</label>
+            </div>
+            <div class="form-check me-3">
+              <input class="form-check-input" type="checkbox" id="electricityCheck" value="electricity">
+              <label class="form-check-label" for="electricityCheck">Электричество</label>
+            </div>
+            <div class="form-check me-3">
+              <input class="form-check-input" type="checkbox" id="gasCheck" value="gas">
+              <label class="form-check-label" for="gasCheck">Газ</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="sewageCheck" value="sewage">
+              <label class="form-check-label" for="sewageCheck">Канализация</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12 d-flex justify-content-center">
+          <button type="submit" class="btn-modern">
+            <span>Показать объекты</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Modern Properties Grid -->
+<section class="container py-5">
+  <div class="view-options mb-4">
+    <button class="view-btn active" id="gridView">
+      <i class="fas fa-th"></i> Сетка
+    </button>
+    <button class="view-btn" id="listView">
+      <i class="fas fa-list"></i> Список
+    </button>
+  </div>
+
+  <div class="properties-container modern-grid" id="propertiesContainer">
+    <!-- Properties will be loaded dynamically -->
+  </div>
+
+  <!-- Modern Pagination -->
+  <nav aria-label="Page navigation" class="mt-5">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Назад</a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Вперед</a>
+      </li>
+    </ul>
+  </nav>
+</section>
+
+<!-- Modern Advantages Section -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center section-title mb-5">Преимущества загородной жизни</h2>
+    <div class="modern-grid">
+      <div class="glass-card advantage-box text-center" data-aos="fade-up">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-tree fa-3x"></i>
+        </div>
+        <h4>Чистый воздух</h4>
+        <p>Наслаждайтесь свежим воздухом вдали от городской суеты и загрязнений</p>
+      </div>
+      <div class="glass-card advantage-box text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-seedling fa-3x"></i>
+        </div>
+        <h4>Собственный сад</h4>
+        <p>Выращивайте organic-овощи и фрукты на своем участке</p>
+      </div>
+      <div class="glass-card advantage-box text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-child fa-3x"></i>
+        </div>
+        <h4>Пространство для детей</h4>
+        <p>Дети растут на природе, с большим пространством для игр и развития</p>
+      </div>
+      <div class="glass-card advantage-box text-center" data-aos="fade-up">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-dog fa-3x"></i>
+        </div>
+        <h4>Питомцы</h4>
+        <p>Идеальные условия для содержания домашних животных</p>
+      </div>
+      <div class="glass-card advantage-box text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-home fa-3x"></i>
+        </div>
+        <h4>Инвестиция</h4>
+        <p>Загородная недвижимость стабильно растет в цене и является хорошей инвестицией</p>
+      </div>
+      <div class="glass-card advantage-box text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-heart fa-3x"></i>
+        </div>
+        <h4>Качество жизни</h4>
+        <p>Снижение стресса, здоровый образ жизни и гармония с природой</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modern Contact Form -->
+<section class="contact-form-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <h2 class="mb-4" data-aos="fade-up">Мечтаете о загородном доме?</h2>
+        <p class="mb-5" data-aos="fade-up" data-aos-delay="200">Оставьте заявку и мы подберем для вас идеальный вариант загородной недвижимости</p>
+
+        <form class="glass-card p-4" id="countrysideForm" name="countrysideForm" data-aos="fade-up" data-aos-delay="400">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input type="text" class="form-control form-control-lg" name="name" placeholder="Ваше имя" required>
+            </div>
+            <div class="col-md-6">
+              <input type="tel" class="form-control form-control-lg" name="phone" placeholder="Ваш телефон" required>
+            </div>
+            <div class="col-md-12">
+              <select class="form-select form-select-lg" name="propertyType">
+                <option selected>Тип недвижимости</option>
+                <option>Коттедж</option>
+                <option>Дача</option>
+                <option>Таунхаус</option>
+                <option>Участок</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <input type="number" class="form-control form-control-lg" name="budget" placeholder="Бюджет, $">
+            </div>
+            <div class="col-md-6">
+              <input type="number" class="form-control form-control-lg" name="distance" placeholder="Расстояние от Минска, км">
+            </div>
+            <div class="col-md-12">
+              <textarea class="form-control form-control-lg" rows="4" name="comments" placeholder="Дополнительные пожелания"></textarea>
+            </div>
+            <div class="col-md-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="agree" required>
+                <label class="form-check-label" for="agree">
+                  Согласен на обработку персональных данных
+                </label>
+              </div>
+            </div>
+            <div class="col-md-12 text-center mt-4">
+              <button type="submit" class="btn-modern btn-lg px-5">
+                <span>Получить подборку</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<!-- Load Components JS -->
+<script src="/js/load-components.js"></script>
+<!-- Modern Real Estate JS -->
+<script src="/js/modern-real-estate.js"></script>
+<!-- Forms JavaScript -->
+<script src="/js/forms.js"></script>
+<!-- Common JavaScript -->
+<script src="/js/common.js"></script>
+<!-- Toast JavaScript -->
+<script src="/js/toast.js"></script>
+<!-- Main Combined JavaScript -->
+<script src="/js/main-combined.js"></script>
+
+</body>
+</html>

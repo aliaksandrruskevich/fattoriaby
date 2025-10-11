@@ -1,5 +1,4 @@
 // Динамическая подгрузка навигации и других компонентов
-
 document.addEventListener('DOMContentLoaded', () => {
   // Подгрузка навигации из includes/header.html
   fetch('/includes/header.html')

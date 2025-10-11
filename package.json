@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/aliaksandrruskevich/an-fattoriy#readme",
   "dependencies": {
-    "basic-auth": "^2.0.1"
+    "basic-auth": "^2.0.1",
+    "xml2js": "^0.6.2"
   }
 }

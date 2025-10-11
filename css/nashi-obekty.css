@@ -14,7 +14,7 @@
 
 .filter-section {
   background-color: #1a1a1a;
-  color: #e0e0e0;
+  color: #e0e0e006;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
@@ -161,7 +161,8 @@
 }
 
 .page-link {
-  color: var(--primary-color);
+  color: #333;
+  border-color: #333;
 }
 
 .page-item.active .page-link {
@@ -250,6 +251,11 @@
 
 .price-range span {
   font-size: 0.9rem;
+}
+
+/* Преимущества */
+.advantage-box h4, .advantage-box p {
+  color: #333;
 }
 
 /* Адаптивность */

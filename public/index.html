@@ -28,7 +28,7 @@
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://fattoriaminsk.by">
+  <link rel="canonical" href="https://fattoriya.by">
 
 
   <!-- Bootstrap 5 -->
@@ -58,12 +58,20 @@
 </head>
 <body>
 
+<!-- Skip to content link -->
+<a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
 <div id="header-placeholder"></div>
+
+<!-- Language Toggle -->
+<div class="language-toggle">
+  <button id="langToggle" class="btn btn-sm btn-outline-secondary" aria-label="Переключить язык">EN</button>
+</div>
 
 
 
 <!-- Блок с большим выбором объектов -->
-<section class="big-choice">
+<section class="big-choice" id="main-content" role="main">
   <div class="container big-choice-content">
     <h2 data-aos="fade-down">Большой выбор объектов недвижимости</h2>
     <p class="lead" data-aos="fade-up" data-aos-delay="200">Мы предлагаем лучшие варианты квартир, домов и коммерческой недвижимости в вашем городе</p>
@@ -116,13 +124,12 @@
 </section>
 
 <!-- Фильтры поиска -->
-<!--
 <section class="section" id="filters">
   <div class="container">
     <h3 class="text-center mb-4" data-aos="fade-up">Найти объект недвижимости</h3>
     <form class="row g-3 justify-content-center" id="filterForm">
       <div class="col-md-3">
-        <select class="form-select" id="typeFilter">
+        <select class="form-select" id="typeFilter" aria-label="Тип недвижимости">
           <option value="">Все типы</option>
           <option value="квартира">Квартира</option>
           <option value="дом">Дом</option>
@@ -144,7 +151,6 @@
     </form>
   </div>
 </section>
--->
 
 <!-- Спецпредложения -->
 <section class="section" id="specials">
@@ -311,6 +317,8 @@
   </div>
 </section>
 
+
+
 <!-- Тест-драйв -->
 <section class="section" id="services" style="background: #f8f9fa;">
   <div class="container">
@@ -398,15 +406,120 @@
       </div>
       <div class="col-12">
         <div class="logos d-flex flex-wrap justify-content-center">
-          <div class="partner-placeholder" data-aos="zoom-in">Партнёр 1</div>
-          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="200">Партнёр 2</div>
-          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="400">Партнёр 3</div>
-          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="600">Партнёр 4</div>
+          <div class="partner-placeholder" data-aos="zoom-in">Банк БелВЭБ</div>
+          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="200">Банк Дабрабыт</div>
+          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="400">Приорбанк</div>
+          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="600">Банк Решение</div>
+          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="800">МТБанк</div>
+          <div class="partner-placeholder" data-aos="zoom-in" data-aos-delay="1000">Беларусбанк</div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" class="cookie-consent" style="display: none;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <p class="mb-0">Мы используем cookies для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с нашей <a href="cookie-policy.html" target="_blank">политикой cookie</a>.</p>
+      </div>
+      <div class="col-md-4 text-end">
+        <button id="acceptCookies" class="btn btn-warning btn-sm me-2">Принять</button>
+        <button id="declineCookies" class="btn btn-outline-light btn-sm">Отклонить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Отзывы клиентов -->
+<section class="section" id="reviews">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up">Отзывы наших клиентов</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="me-3">
+                <i class="fas fa-user-circle fa-3x text-warning"></i>
+              </div>
+              <div>
+                <h6 class="mb-0">Анна К.</h6>
+                <small class="text-muted">Покупатель квартиры</small>
+              </div>
+            </div>
+            <p class="card-text">"Огромное спасибо агентству за профессиональную помощь в покупке квартиры. Все процессы были прозрачными, и мы получили отличную цену."</p>
+            <div class="text-warning">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="me-3">
+                <i class="fas fa-user-circle fa-3x text-warning"></i>
+              </div>
+              <div>
+                <h6 class="mb-0">Михаил П.</h6>
+                <small class="text-muted">Продавец дома</small>
+              </div>
+            </div>
+            <p class="card-text">"Агентство помогло продать наш дом за рекордно короткий срок. Команда настоящих профессионалов, рекомендую всем!"</p>
+            <div class="text-warning">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="me-3">
+                <i class="fas fa-user-circle fa-3x text-warning"></i>
+              </div>
+              <div>
+                <h6 class="mb-0">Елена С.</h6>
+                <small class="text-muted">Инвестор</small>
+              </div>
+            </div>
+            <p class="card-text">"Благодаря консультациям агентства удалось сделать выгодные инвестиции в недвижимость. Всегда на связи и дают полезные советы."</p>
+            <div class="text-warning">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Floating Contact Button -->
+<div class="floating-contact">
+  <a href="https://wa.me/375447025267" target="_blank" class="floating-btn whatsapp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="tel:+375447025267" class="floating-btn phone">
+    <i class="fas fa-phone"></i>
+  </a>
+</div>
 
 <div id="footer-placeholder"></div>
 
@@ -430,6 +543,33 @@
 <script src="/js/forms.js" defer></script>
 <!-- Yandex Map Initialization -->
 <style>
+/* Skip to content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 4px;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Focus styles for keyboard navigation */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 /* Стили для кликабельных карточек специальных предложений */
 .clickable-card {
     transition: all 0.3s ease;
@@ -449,6 +589,57 @@
 
 .clickable-card .special-img {
     transition: transform 0.3s ease;
+}
+
+/* Cookie Consent Styles */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.cookie-consent a {
+    color: #ffc107;
+    text-decoration: underline;
+}
+
+/* Floating Contact Buttons */
+.floating-contact {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.floating-btn {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25d366;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-btn.phone {
+    background: #007bff;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 /* Стили для модального окна деталей объекта */
@@ -503,18 +694,46 @@
       zoom: 10
     });
 
-    // Примеры маркеров объектов
-    var placemark1 = new ymaps.Placemark([53.9045, 27.5615], {
-      hintContent: 'Квартира в центре',
-      balloonContent: '3-комнатная квартира, 120 000 €'
-    });
-    var placemark2 = new ymaps.Placemark([53.9145, 27.5715], {
-      hintContent: 'Загородный дом',
-      balloonContent: 'Уютный дом с участком, 250 000 €'
-    });
+    // Загружаем объекты из API
+    fetch('/api/properties.php?limit=10')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach((property, index) => {
+          // Генерируем случайные координаты вокруг Минска для демонстрации
+          var lat = 53.9045 + (Math.random() - 0.5) * 0.1;
+          var lng = 27.5615 + (Math.random() - 0.5) * 0.1;
 
-    myMap.geoObjects.add(placemark1);
-    myMap.geoObjects.add(placemark2);
+          var placemark = new ymaps.Placemark([lat, lng], {
+            hintContent: property.title,
+            balloonContent: `
+              <div>
+                <h5>${property.title}</h5>
+                <p><strong>Цена:</strong> ${property.price} €</p>
+                <p><strong>Местоположение:</strong> ${property.location}</p>
+                <p><strong>Тип:</strong> ${property.type}</p>
+                <p>${property.description}</p>
+                <button class="btn btn-warning btn-sm" onclick="showInterest('${property.title}')">Заказать звонок</button>
+              </div>
+            `
+          });
+
+          myMap.geoObjects.add(placemark);
+        });
+      })
+      .catch(error => {
+        console.error('Ошибка загрузки объектов:', error);
+        // Добавляем примеры маркеров
+        var placemark1 = new ymaps.Placemark([53.9045, 27.5615], {
+          hintContent: 'Квартира в центре',
+          balloonContent: '3-комнатная квартира, 120 000 €'
+        });
+        var placemark2 = new ymaps.Placemark([53.9145, 27.5715], {
+          hintContent: 'Загородный дом',
+          balloonContent: 'Уютный дом с участком, 250 000 €'
+        });
+        myMap.geoObjects.add(placemark1);
+        myMap.geoObjects.add(placemark2);
+      });
   }
 
   // Функция для обработки клика по карточкам специальных предложений
@@ -579,6 +798,77 @@
     // Здесь можно добавить код для отправки данных на сервер
     console.log('Пользователь заинтересован в объекте:', propertyTitle);
   }
+
+// Cookie Consent Script
+document.addEventListener('DOMContentLoaded', function() {
+  const cookieConsent = document.getElementById('cookieConsent');
+  const acceptBtn = document.getElementById('acceptCookies');
+  const declineBtn = document.getElementById('declineCookies');
+
+  // Check if user has already made a choice
+  if (!localStorage.getItem('cookieConsent')) {
+    cookieConsent.style.display = 'block';
+  }
+
+  acceptBtn.addEventListener('click', function() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    cookieConsent.style.display = 'none';
+    // Enable analytics if needed
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted'
+    });
+  });
+
+  declineBtn.addEventListener('click', function() {
+    localStorage.setItem('cookieConsent', 'declined');
+    cookieConsent.style.display = 'none';
+    // Disable analytics
+    gtag('consent', 'update', {
+      'analytics_storage': 'denied'
+    });
+  });
+});
+
+// Language Toggle Script
+document.addEventListener('DOMContentLoaded', function() {
+  const langToggle = document.getElementById('langToggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', function() {
+      // For now, just show an alert. In a real implementation, you'd switch languages.
+      alert('Переключение на английский язык будет реализовано в будущем.');
+    });
+  }
+});
+
+// Dark Mode Toggle Script
+document.addEventListener('DOMContentLoaded', function() {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+  const icon = darkModeToggle.querySelector('i');
+
+  // Check for saved theme preference or default to light mode
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  }
+
+  darkModeToggle.addEventListener('click', function() {
+    body.classList.toggle('dark-mode');
+    const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+
+    // Toggle icon
+    if (theme === 'dark') {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    } else {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    }
+  });
+});
 
 
 </script>  <!-- Правильное закрытие тега -->

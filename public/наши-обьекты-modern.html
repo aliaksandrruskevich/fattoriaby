@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Наши объекты | АН ФАТТОРИЯ</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Modern Real Estate Styles -->
+  <link rel="stylesheet" href="/css/modern-real-estate.css">
+  <link rel="stylesheet" href="/css/nashi-obekty.css">
+</head>
+<body>
+
+<!-- Контейнер для уведомлений -->
+<div class="toast-container"></div>
+
+<!-- Модальное окно для деталей объекта -->
+<div class="modal fade modern-modal" id="propertyModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="propertyModalTitle">Детали объекта</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="propertyModalContent">
+          <!-- Контент будет заполняться динамически -->
+        </div>
+        <hr>
+        <h6>Заинтересованы в этом объекте?</h6>
+        <form id="propertyInterestForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
+          </div>
+          <div class="mb-3">
+            <input type="tel" class="form-control" name="phone" placeholder="Ваш телефон" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" name="email" placeholder="Email (необязательно)">
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="propertyAgree" required>
+            <label class="form-check-label" for="propertyAgree">
+              Даю согласие на обработку персональных данных
+            </label>
+          </div>
+          <button type="submit" class="btn-modern w-100">
+            <span>Запросить подробную информацию</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="header-placeholder"></div>
+
+<!-- Modern Hero Section -->
+<section class="modern-hero objects-hero">
+  <div class="container">
+    <div class="modern-hero-content text-center">
+      <h1 class="display-4 fw-bold mb-4 float-animation" data-aos="fade-down">Наши объекты</h1>
+      <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">Лучшие предложения недвижимости в Минске и области</p>
+    </div>
+  </div>
+</section>
+
+<!-- Modern Filters -->
+<section class="container">
+  <div class="modern-filter-section glass-card" data-aos="fade-up">
+    <h4 class="mb-4">Подбор параметров</h4>
+    <form id="propertyFilters">
+      <div class="row">
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Тип недвижимости</label>
+          <div class="filter-chips-container" data-category="type">
+            <button class="filter-chip" data-value="apartment">Квартира</button>
+            <button class="filter-chip" data-value="house">Дом</button>
+            <button class="filter-chip" data-value="commercial">Коммерческая</button>
+            <button class="filter-chip" data-value="plot">Участок</button>
+          </div>
+        </div>
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Район</label>
+          <div class="filter-chips-container" data-category="district">
+            <button class="filter-chip" data-value="central">Центральный</button>
+            <button class="filter-chip" data-value="sovetsky">Советский</button>
+            <button class="filter-chip" data-value="pervomaysky">Первомайский</button>
+            <button class="filter-chip" data-value="partizansky">Партизанский</button>
+          </div>
+        </div>
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Количество комнат</label>
+          <div class="filter-chips-container" data-category="rooms">
+            <button class="filter-chip" data-value="1">1</button>
+            <button class="filter-chip" data-value="2">2</button>
+            <button class="filter-chip" data-value="3">3</button>
+            <button class="filter-chip" data-value="4">4</button>
+            <button class="filter-chip" data-value="5+">5+</button>
+          </div>
+        </div>
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Цена, $</label>
+          <input type="range" class="modern-range-slider" min="0" max="500000" step="10000" id="priceRange">
+          <div class="d-flex justify-content-between">
+            <span id="minPrice">0</span>
+            <span id="maxPrice">500 000</span>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-3 filter-group">
+          <label class="form-label">Площадь, м²</label>
+          <div class="row">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="от" id="minArea">
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" placeholder="до" id="maxArea">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 filter-group">
+          <label class="form-label">Дополнительные параметры</label>
+          <div class="d-flex flex-wrap">
+            <div class="form-check me-3">
+              <input class="form-check-input" type="checkbox" id="balconyCheck" value="balcony">
+              <label class="form-check-label" for="balconyCheck">Балкон/лоджия</label>
+            </div>
+            <div class="form-check me-3">
+              <input class="form-check-input" type="checkbox" id="parkingCheck" value="parking">
+              <label class="form-check-label" for="parkingCheck">Парковка</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="renovationCheck" value="renovation">
+              <label class="form-check-label" for="renovationCheck">Ремонт</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 filter-group d-flex align-items-end">
+          <button type="submit" class="btn-modern">
+            <span>Показать объекты</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Modern Properties Grid -->
+<section class="container py-5">
+  <div class="view-options mb-4">
+    <button class="view-btn active" id="gridView">
+      <i class="fas fa-th"></i> Сетка
+    </button>
+    <button class="view-btn" id="listView">
+      <i class="fas fa-list"></i> Список
+    </button>
+  </div>
+
+  <div class="properties-container modern-grid" id="propertiesContainer">
+    <!-- Properties will be loaded dynamically -->
+  </div>
+
+  <!-- Modern Pagination -->
+  <nav aria-label="Page navigation" class="mt-5">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Назад</a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Вперед</a>
+      </li>
+    </ul>
+  </nav>
+</section>
+
+<!-- Modern Advantages Section -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center section-title mb-5">Почему выбирают наши объекты</h2>
+    <div class="modern-grid">
+      <div class="glass-card advantage-box text-center" data-aos="fade-up">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-check-circle fa-3x"></i>
+        </div>
+        <h4>Проверенные объекты</h4>
+        <p>Все объекты проверены на юридическую чистоту и соответствие описанию</p>
+      </div>
+      <div class="glass-card advantage-box text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-camera fa-3x"></i>
+        </div>
+        <h4>Реальные фото</h4>
+        <p>Мы публикуем только реальные фотографии объектов, без stock-изображений</p>
+      </div>
+      <div class="glass-card advantage-box text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="advantage-icon mb-3">
+          <i class="fas fa-euro-sign fa-3x"></i>
+        </div>
+        <h4>Лучшие цены</h4>
+        <p>Мы Negotiate лучшие цены для наших клиентов на рынке недвижимости</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<!-- Load Components JS -->
+<script src="/js/load-components.js"></script>
+<!-- Modern Real Estate JS -->
+<script src="/js/modern-real-estate.js"></script>
+<!-- Common JavaScript -->
+<script src="/js/common.js"></script>
+<!-- Forms JavaScript -->
+<script src="/js/forms.js"></script>
+<!-- Toast JavaScript -->
+<script src="/js/toast.js"></script>
+<!-- Main Combined JavaScript -->
+<script src="/js/main-combined.js"></script>
+
+<!-- Плавающая кнопка чата Telegram -->
+<div class="telegram-chat-widget">
+  <a href="https://t.me/fattoriaminsk" target="_blank" class="telegram-chat-btn" title="Написать в Telegram">
+    <i class="fab fa-telegram-plane"></i>
+    <span class="chat-text">Чат</span>
+  </a>
+</div>
+
+</body>
+</html>
