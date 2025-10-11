@@ -42,43 +42,8 @@
 <section class="section" id="categories">
   <div class="container">
     <h2 class="text-center mb-5" data-aos="fade-up">Категории статей</h2>
-    <div class="row g-4">
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="0">
-        <div class="category-card text-center">
-          <div class="category-icon">
-            <i class="fas fa-home"></i>
-          </div>
-          <h5>Покупка жилья</h5>
-          <p>Советы по выбору и покупке недвижимости</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="category-card text-center">
-          <div class="category-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h5>Инвестиции</h5>
-          <p>Как инвестировать в недвижимость выгодно</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="category-card text-center">
-          <div class="category-icon">
-            <i class="fas fa-gavel"></i>
-          </div>
-          <h5>Юридические аспекты</h5>
-          <p>Правовые вопросы сделок с недвижимостью</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="category-card text-center">
-          <div class="category-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <h5>Новостройки</h5>
-          <p>Все о первичном рынке жилья</p>
-        </div>
-      </div>
+    <div class="row g-4" id="categories-container">
+      <!-- Категории будут загружены динамически -->
     </div>
   </div>
 </section>
@@ -87,58 +52,22 @@
 <section class="section black-section" id="featured-posts">
   <div class="container">
     <h2 class="text-center mb-5" data-aos="fade-up">Популярные статьи</h2>
-    <div class="row g-4">
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
-        <div class="blog-card">
-          <div class="blog-image">
-            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" class="img-fluid" alt="Как выбрать квартиру" loading="lazy">
-            <div class="blog-category">Покупка жилья</div>
-          </div>
-          <div class="blog-content">
-            <h4>Как правильно выбрать квартиру для покупки</h4>
-            <p>Подробное руководство по выбору идеальной квартиры. Узнайте на что обратить внимание при осмотре объекта.</p>
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar"></i> 15 марта 2024</span>
-              <span><i class="fas fa-eye"></i> 1250 просмотров</span>
-            </div>
-            <a href="#" class="btn btn-warning btn-sm">Читать далее</a>
-          </div>
-        </div>
-      </div>
+    <div class="row g-4" id="featured-articles">
+      <!-- Популярные статьи будут загружены динамически -->
+    </div>
+  </div>
+</section>
 
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="blog-card">
-          <div class="blog-image">
-            <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" class="img-fluid" alt="Инвестиции в недвижимость" loading="lazy">
-            <div class="blog-category">Инвестиции</div>
-          </div>
-          <div class="blog-content">
-            <h4>Инвестиции в недвижимость: риски и возможности</h4>
-            <p>Анализ рынка недвижимости Беларуси. Какие объекты принесут максимальную доходность в 2024 году.</p>
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar"></i> 10 марта 2024</span>
-              <span><i class="fas fa-eye"></i> 980 просмотров</span>
-            </div>
-            <a href="#" class="btn btn-warning btn-sm">Читать далее</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="blog-card">
-          <div class="blog-image">
-            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" class="img-fluid" alt="Ипотека в Беларуси" loading="lazy">
-            <div class="blog-category">Финансы</div>
-          </div>
-          <div class="blog-content">
-            <h4>Ипотека в Беларуси: ставки и условия 2024</h4>
-            <p>Обзор банковских предложений по ипотечному кредитованию. Как выбрать оптимальную программу.</p>
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar"></i> 5 марта 2024</span>
-              <span><i class="fas fa-eye"></i> 1450 просмотров</span>
-            </div>
-            <a href="#" class="btn btn-warning btn-sm">Читать далее</a>
-          </div>
+<!-- Поиск статей -->
+<section class="section" id="search-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="input-group mb-4">
+          <input type="text" class="form-control" id="searchInput" placeholder="Поиск статей..." aria-label="Поиск статей">
+          <button class="btn btn-warning" type="button" id="searchButton">
+            <i class="fas fa-search"></i> Поиск
+          </button>
         </div>
       </div>
     </div>
@@ -149,7 +78,7 @@
 <section class="section" id="all-posts">
   <div class="container">
     <h2 class="text-center mb-5" data-aos="fade-up">Все статьи</h2>
-    <div class="row g-4">
+    <div class="row g-4" id="all-articles">
       <div class="col-lg-6" data-aos="fade-right">
         <div class="blog-card-horizontal">
           <div class="row">
@@ -164,7 +93,7 @@
                 <div class="blog-meta">
                   <span><i class="fas fa-calendar"></i> 28 февраля 2024</span>
                 </div>
-                <a href="#" class="btn btn-outline-warning btn-sm">Читать</a>
+                <a href="article.html?slug=trendy-zagorodnogo-zhilya-v-belarusi" class="btn btn-outline-warning btn-sm">Читать</a>
               </div>
             </div>
           </div>
@@ -185,7 +114,7 @@
                 <div class="blog-meta">
                   <span><i class="fas fa-calendar"></i> 20 февраля 2024</span>
                 </div>
-                <a href="#" class="btn btn-outline-warning btn-sm">Читать</a>
+                <a href="article.html?slug=kak-vybrat-pomeshchenie-dlya-biznesa" class="btn btn-outline-warning btn-sm">Читать</a>
               </div>
             </div>
           </div>
@@ -206,7 +135,7 @@
                 <div class="blog-meta">
                   <span><i class="fas fa-calendar"></i> 15 февраля 2024</span>
                 </div>
-                <a href="#" class="btn btn-outline-warning btn-sm">Читать</a>
+                <a href="article.html?slug=remont-kvartiry-s-chego-nachat" class="btn btn-outline-warning btn-sm">Читать</a>
               </div>
             </div>
           </div>
@@ -227,7 +156,7 @@
                 <div class="blog-meta">
                   <span><i class="fas fa-calendar"></i> 8 февраля 2024</span>
                 </div>
-                <a href="#" class="btn btn-outline-warning btn-sm">Читать</a>
+                <a href="article.html?slug=neobhodimye-dokumenty-dlya-sdelki" class="btn btn-outline-warning btn-sm">Читать</a>
               </div>
             </div>
           </div>
@@ -296,7 +225,200 @@
 <!-- Toast JavaScript -->
 <script src="js/toast.js" defer></script>
 
-<script src="js/blog-pagination.js" defer></script>
+<script>
+let allArticles = [];
+let filteredArticles = [];
+let currentPage = 1;
+const articlesPerPage = 6;
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Загрузка статей
+  fetch('data/articles.json')
+    .then(response => response.json())
+    .then(articles => {
+      allArticles = articles;
+      filteredArticles = [...articles];
+      renderCategories();
+      renderFeaturedArticles();
+      renderAllArticles();
+      renderPagination();
+    })
+    .catch(error => {
+      console.error('Ошибка загрузки статей:', error);
+    });
+
+  // Обработчик поиска
+  document.getElementById('searchButton').addEventListener('click', performSearch);
+  document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+});
+
+function performSearch() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  if (query === '') {
+    filteredArticles = [...allArticles];
+  } else {
+    filteredArticles = allArticles.filter(article =>
+      article.title.toLowerCase().includes(query) ||
+      article.excerpt.toLowerCase().includes(query) ||
+      article.content.toLowerCase().includes(query) ||
+      article.category.toLowerCase().includes(query)
+    );
+  }
+  currentPage = 1;
+  renderAllArticles();
+  renderPagination();
+}
+
+function renderCategories() {
+  const categories = [...new Set(allArticles.map(a => a.category))];
+  const container = document.getElementById('categories-container');
+
+  const categoryIcons = {
+    'Покупка жилья': 'fa-home',
+    'Инвестиции': 'fa-chart-line',
+    'Юридические аспекты': 'fa-gavel',
+    'Новостройки': 'fa-building',
+    'Загородная недвижимость': 'fa-tree',
+    'Коммерческая недвижимость': 'fa-store',
+    'Ремонт': 'fa-tools',
+    'Документы': 'fa-file-alt',
+    'Финансы': 'fa-money-bill-wave'
+  };
+
+  categories.forEach(category => {
+    const col = document.createElement('div');
+    col.className = 'col-md-3 col-6';
+    col.innerHTML = `
+      <div class="category-card text-center" data-aos="fade-up">
+        <div class="category-icon">
+          <i class="fas ${categoryIcons[category] || 'fa-tag'}"></i>
+        </div>
+        <h5><a href="category.html?category=${encodeURIComponent(category)}" class="text-decoration-none">${category}</a></h5>
+        <p>Статьи в категории</p>
+      </div>
+    `;
+    container.appendChild(col);
+  });
+}
+
+function renderFeaturedArticles() {
+  const featured = allArticles.sort((a, b) => b.views - a.views).slice(0, 3);
+  const container = document.getElementById('featured-articles');
+
+  featured.forEach((article, index) => {
+    const col = document.createElement('div');
+    col.className = 'col-lg-4 col-md-6';
+    col.setAttribute('data-aos', 'fade-up');
+    col.setAttribute('data-aos-delay', (index * 200).toString());
+    col.innerHTML = `
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="${article.image}" class="img-fluid" alt="${article.title}" loading="lazy">
+          <div class="blog-category">${article.category}</div>
+        </div>
+        <div class="blog-content">
+          <h4>${article.title}</h4>
+          <p>${article.excerpt}</p>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> ${new Date(article.date).toLocaleDateString('ru-RU')}</span>
+            <span><i class="fas fa-eye"></i> ${article.views} просмотров</span>
+          </div>
+          <a href="article.html?slug=${article.slug}" class="btn btn-warning btn-sm">Читать далее</a>
+        </div>
+      </div>
+    `;
+    container.appendChild(col);
+  });
+}
+
+function renderAllArticles() {
+  const container = document.getElementById('all-articles');
+  container.innerHTML = '';
+
+  const start = (currentPage - 1) * articlesPerPage;
+  const end = start + articlesPerPage;
+  const articlesToShow = filteredArticles.slice(start, end);
+
+  articlesToShow.forEach((article, index) => {
+    const col = document.createElement('div');
+    col.className = 'col-lg-6';
+    col.setAttribute('data-aos', index % 2 === 0 ? 'fade-right' : 'fade-left');
+    col.innerHTML = `
+      <div class="blog-card-horizontal">
+        <div class="row">
+          <div class="col-md-5">
+            <img src="${article.image}" class="img-fluid rounded" alt="${article.title}" loading="lazy">
+          </div>
+          <div class="col-md-7">
+            <div class="blog-content">
+              <div class="blog-category">${article.category}</div>
+              <h5>${article.title}</h5>
+              <p>${article.excerpt}</p>
+              <div class="blog-meta">
+                <span><i class="fas fa-calendar"></i> ${new Date(article.date).toLocaleDateString('ru-RU')}</span>
+                <span><i class="fas fa-eye"></i> ${article.views} просмотров</span>
+              </div>
+              <a href="article.html?slug=${article.slug}" class="btn btn-outline-warning btn-sm">Читать</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    container.appendChild(col);
+  });
+}
+
+function renderPagination() {
+  const pagination = document.getElementById('blogPagination');
+  pagination.innerHTML = '';
+
+  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+
+  if (totalPages <= 1) return;
+
+  // Предыдущая
+  const prevLi = document.createElement('li');
+  prevLi.className = 'page-item' + (currentPage === 1 ? ' disabled' : '');
+  prevLi.innerHTML = `<a class="page-link prev-page" href="#" aria-label="Предыдущая страница">Предыдущая</a>`;
+  pagination.appendChild(prevLi);
+
+  // Страницы
+  for (let i = 1; i <= totalPages; i++) {
+    const li = document.createElement('li');
+    li.className = 'page-item' + (i === currentPage ? ' active' : '');
+    li.innerHTML = `<a class="page-link page-number" href="#" data-page="${i}">${i}</a>`;
+    pagination.appendChild(li);
+  }
+
+  // Следующая
+  const nextLi = document.createElement('li');
+  nextLi.className = 'page-item' + (currentPage === totalPages ? ' disabled' : '');
+  nextLi.innerHTML = `<a class="page-link next-page" href="#" aria-label="Следующая страница">Следующая</a>`;
+  pagination.appendChild(nextLi);
+
+  // Обработчики
+  pagination.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (e.target.classList.contains('page-number')) {
+      currentPage = parseInt(e.target.dataset.page);
+      renderAllArticles();
+      renderPagination();
+    } else if (e.target.classList.contains('prev-page') && currentPage > 1) {
+      currentPage--;
+      renderAllArticles();
+      renderPagination();
+    } else if (e.target.classList.contains('next-page') && currentPage < totalPages) {
+      currentPage++;
+      renderAllArticles();
+      renderPagination();
+    }
+  });
+}
+</script>
 
 <!-- Модальное окно для политики конфиденциальности -->
 <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">

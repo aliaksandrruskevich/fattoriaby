@@ -5,14 +5,14 @@
 
 /* Основные настройки */
 :root {
-    --primary-color: #f707ff67;
+    --primary-color: #f707ff;
     --secondary-color: #ffd700;
     --dark-color: #212529;
     --light-color: #f8f9fa;
     --bs-primary: var(--primary-color);
-    --bg-color: #000;
+    --bg-color: linear-gradient(135deg, #1a0033 0%, #000000 100%);
     --text-color: #e0e0e0;
-    --card-bg: #1a1a1a;
+    --card-bg: #2a0044;
     --border-color: rgba(255,255,255,0.1);
 }
 
@@ -28,7 +28,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--bg-color);
+    background: var(--bg-color);
     padding-top: 76px; /* Для фиксированной навигации */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -157,7 +157,6 @@ header#main h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
     color: white;
     padding: 1.5rem;
 }
@@ -206,10 +205,9 @@ header#main h1 {
 
 /* Услуги */
 .black-section {
-    background: linear-gradient(135deg, #3a4a63, #4a5a7e); /* Slightly lighter gradient */
-    color: white;
+    background: var(--bg-color);
+    color: var(--text-color);
     padding: 80px 0;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .black-section h2,
@@ -456,7 +454,7 @@ header#main h1 {
     font-size: 2rem;
     margin: 0 auto 1rem;
     text-align: center;
-    background: #1a1a1a;
+    background: var(--card-bg);
     box-shadow: 0 0 15px #ff9800;
 }
 
@@ -763,8 +761,8 @@ ul li {
     text-align: center;
     padding: 2rem;
     border-radius: 15px;
-    background: #1a1a1a;
-    color: #e0e0e0;
+    background: var(--card-bg);
+    color: var(--text-color);
     box-shadow: 0 5px 15px rgba(255,255,255,0.1);
     transition: transform 0.3s ease;
 }
@@ -786,8 +784,8 @@ ul li {
 .tariff-card {
     border-radius: 15px;
     padding: 2rem;
-    background: #1a1a1a;
-    color: #e0e0e0;
+    background: var(--card-bg);
+    color: var(--text-color);
     box-shadow: 0 5px 15px rgba(255,255,255,0.1);
     text-align: center;
     transition: transform 0.3s ease;
@@ -821,8 +819,8 @@ ul li {
 
 /* Стили для информации */
 .info-card {
-    background: #1a1a1a;
-    color: #e0e0e0;
+    background: var(--card-bg);
+    color: var(--text-color);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(255,255,255,0.1);
@@ -838,8 +836,8 @@ ul li {
 .congratulation-form {
     max-width: 600px;
     margin: 0 auto;
-    background: #1a1a1a;
-    color: #e0e0e0;
+    background: var(--card-bg);
+    color: var(--text-color);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(255,255,255,0.1);
