@@ -1,0 +1,246 @@
+/* Стили для индивидуальной страницы ЖК */
+
+/* Breadcrumb секция */
+.breadcrumb-section {
+  padding: 40px 0 20px;
+  background: #000;
+}
+
+.breadcrumb {
+  background: transparent;
+  margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+  color: #f0ad4e;
+}
+
+.breadcrumb-item.active {
+  color: #e0e0e0;
+}
+
+/* Большая фотография */
+.large-photo-section {
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.large-photo-section img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* Первый текстовый блок с фото */
+.first-text-section {
+  padding: 60px 0;
+  background: #1a1a1a;
+}
+
+.first-text-section .text-block {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.first-text-section .text-block p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.first-text-section .text-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Второй текстовый блок */
+.second-text-section {
+  padding: 60px 0;
+  background: #000;
+}
+
+.second-text-section .full-width-text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.second-text-section h3 {
+  color: #f0ad4e;
+  margin-bottom: 2rem;
+}
+
+.second-text-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Вторая большая фотография */
+.second-large-image-section {
+  padding: 0;
+  margin: 40px 0;
+}
+
+.second-large-image-section img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Описание карточки */
+.card-description-section {
+  padding: 60px 0;
+  background: #1a1a1a;
+}
+
+.card-description-section .section-title {
+  color: #f0ad4e;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.card-description-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.apartments-table {
+  margin-bottom: 3rem;
+}
+
+.apartments-table h3 {
+  color: #f0ad4e;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.table {
+  background: #333;
+  color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.table th {
+  background: #f707ff;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.table td {
+  border-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card-description-section h4 {
+  color: #f0ad4e;
+  margin: 2rem 0 1rem;
+}
+
+.card-description-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card-description-section li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-description-section li:last-child {
+  border-bottom: none;
+}
+
+.card-description-section strong {
+  color: #f0ad4e;
+}
+
+.infrastructure-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.infrastructure-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infrastructure-item i {
+  color: #f0ad4e;
+  width: 16px;
+}
+
+/* Контактная секция */
+.contact-section {
+  padding: 60px 0;
+  background: #000;
+}
+
+.contact-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-card h5 {
+  color: #f0ad4e;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Адаптивность для индивидуальной страницы */
+@media (max-width: 768px) {
+  .first-text-section .row {
+    flex-direction: column;
+  }
+
+  .first-text-section .col-lg-6 {
+    margin-bottom: 2rem;
+  }
+
+  .large-photo-section img,
+  .second-large-image-section img {
+    max-height: 300px;
+  }
+
+  .apartments-table .table {
+    font-size: 0.9rem;
+  }
+
+  .apartments-table .table th,
+  .apartments-table .table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .infrastructure-grid {
+    flex-direction: column;
+  }
+
+  .infrastructure-item {
+    justify-content: center;
+  }
+}

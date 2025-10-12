@@ -17,67 +17,149 @@
   <!-- Основные стили -->
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/novostroyki.css" />
+  <link rel="stylesheet" href="../css/жк-detail.css" />
 </head>
 <body>
   <!-- Header and navigation from index.html -->
   <div id="header-placeholder"></div>
 
-  <!-- Hero Section -->
-  <section class="project-hero">
+  <!-- Breadcrumb and Title -->
+  <section class="breadcrumb-section">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="../новостройки.html">Новостройки</a></li>
-              <li class="breadcrumb-item active" aria-current="page">ЖК Комфорт Парк</li>
-            </ol>
-          </nav>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../новостройки.html">Новостройки</a></li>
+          <li class="breadcrumb-item active" aria-current="page">ЖК Комфорт Парк</li>
+        </ol>
+      </nav>
+      <h1 class="display-4 fw-bold mb-4">ЖК Комфорт Парк</h1>
+    </div>
+  </section>
 
-          <h1 class="display-4 fw-bold mb-4">ЖК Комфорт Парк</h1>
-          <p class="lead mb-4">Жилой комплекс с парковой зоной и детскими площадками для комфортной жизни</p>
+  <!-- Upper Block - Large Photo -->
+  <section class="large-photo-section">
+    <div class="container-fluid p-0">
+      <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" alt="ЖК Комфорт Парк - общий вид комплекса" class="img-fluid w-100">
+    </div>
+  </section>
 
-          <div class="project-status mb-4">
-            <span class="badge bg-info fs-6 me-2">Строится</span>
-            <span class="text-muted"><i class="fas fa-calendar"></i> Срок сдачи: 2025</span>
-          </div>
-
-          <div class="project-features-list mb-4">
-            <div class="row g-3">
-              <div class="col-md-3">
-                <div class="feature-item">
-                  <i class="fas fa-tree text-warning"></i>
-                  <span>Парковая зона</span>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="feature-item">
-                  <i class="fas fa-child text-warning"></i>
-                  <span>Детские площадки</span>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="feature-item">
-                  <i class="fas fa-home text-warning"></i>
-                  <span>Комфорт</span>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="feature-item">
-                  <i class="fas fa-shield-alt text-warning"></i>
-                  <span>Надежный застройщик</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-price">
-            <h3 class="text-warning fw-bold">от 2 500 BYN/м²</h3>
-            <p class="text-muted">Цена за квадратный метр</p>
+  <!-- First Text Block with Photo on Left -->
+  <section class="first-text-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Фасад ЖК Комфорт Парк" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-6">
+          <div class="text-block">
+            <p class="lead">ЖК "Комфорт Парк" расположен в экологичной зоне Минска с развитой инфраструктурой. Комплекс предлагает современные квартиры с качественной отделкой, парковой зоной и детскими площадками для комфортной жизни семьи.</p>
+            <p>Инфраструктура района включает близость к метро, школам, магазинам и зеленым зонам. Надежный застройщик гарантирует своевременную сдачу объекта.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="col-lg-4">
+  <!-- Second Text Block - Full Width -->
+  <section class="second-text-section">
+    <div class="container">
+      <div class="full-width-text">
+        <h3>Преимущества ЖК Комфорт Парк</h3>
+        <p>ЖК "Комфорт Парк" - это проект, сочетающий комфорт, безопасность и экологичность. Срок сдачи комплекса - 2025 год. Застройщик имеет многолетний опыт строительства жилых комплексов в Минске.</p>
+        <p>Комплекс состоит из четырех корпусов по 13 этажей каждый, с подземной и наземной парковкой. Все квартиры сдаются с полной отделкой, что позволяет сразу заселиться и начать комфортную жизнь.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Second Large Image -->
+  <section class="second-large-image-section">
+    <div class="container-fluid p-0">
+      <img src="https://images.unsplash.com/photo-1493663284031-b7e3a4d0c25b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Планировка территории ЖК Комфорт Парк" class="img-fluid w-100">
+    </div>
+  </section>
+
+  <!-- Card Description -->
+  <section class="card-description-section">
+    <div class="container">
+      <h2 class="section-title">Описание комплекса</h2>
+      <p>ЖК Комфорт Парк предлагает разнообразие планировок квартир для разных потребностей. Ниже приведены примеры доступных вариантов:</p>
+
+      <div class="apartments-table">
+        <h3>Примеры квартир</h3>
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>Тип квартиры</th>
+              <th>Площадь</th>
+              <th>Количество комнат</th>
+              <th>Цена за м²</th>
+              <th>Особенности планировки</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Студия</td>
+              <td>25-35 м²</td>
+              <td>1</td>
+              <td>от 2 400 BYN</td>
+              <td>Открытая планировка, компактная кухня</td>
+            </tr>
+            <tr>
+              <td>1-комнатная</td>
+              <td>40-50 м²</td>
+              <td>1</td>
+              <td>от 2 500 BYN</td>
+              <td>Отдельная кухня, просторная комната</td>
+            </tr>
+            <tr>
+              <td>2-комнатная</td>
+              <td>60-70 м²</td>
+              <td>2</td>
+              <td>от 2 600 BYN</td>
+              <td>Изолированные комнаты, балкон</td>
+            </tr>
+            <tr>
+              <td>3-комнатная</td>
+              <td>80-90 м²</td>
+              <td>3</td>
+              <td>от 2 700 BYN</td>
+              <td>Просторная гостиная, две спальни</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4">
+        <h4>Характеристики комплекса</h4>
+        <ul class="list-unstyled">
+          <li><strong>Адрес:</strong> г. Минск, ул. Комфортная, 18</li>
+          <li><strong>Статус:</strong> Строится</li>
+          <li><strong>Срок сдачи:</strong> 2025</li>
+          <li><strong>Этажность:</strong> 13 этажей</li>
+          <li><strong>Количество квартир:</strong> 260</li>
+          <li><strong>Парковка:</strong> Подземная + наземная</li>
+        </ul>
+      </div>
+
+      <div class="mt-4">
+        <h4>Инфраструктура</h4>
+        <div class="infrastructure-grid">
+          <span class="infrastructure-item"><i class="fas fa-shopping-cart"></i> Супермаркет - 300м</span>
+          <span class="infrastructure-item"><i class="fas fa-subway"></i> Метро - 600м</span>
+          <span class="infrastructure-item"><i class="fas fa-school"></i> Школа - 400м</span>
+          <span class="infrastructure-item"><i class="fas fa-hospital"></i> Поликлиника - 500м</span>
+          <span class="infrastructure-item"><i class="fas fa-bus"></i> Остановка - 150м</span>
+          <span class="infrastructure-item"><i class="fas fa-tree"></i> Парк - 50м</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
           <div class="contact-card">
             <h5>Получить консультацию</h5>
             <form class="contact-form">
@@ -92,130 +174,6 @@
               </div>
               <button type="submit" class="btn btn-warning w-100">Получить консультацию</button>
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Gallery -->
-  <section class="project-gallery">
-    <div class="container">
-      <h2 class="section-title">Галерея проекта</h2>
-      <div class="row g-3">
-        <div class="col-md-8">
-          <div class="main-image">
-            <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" alt="ЖК Комфорт Парк" class="img-fluid rounded">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row g-3">
-            <div class="col-12">
-              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Современный фасад" class="img-fluid rounded">
-            </div>
-            <div class="col-12">
-              <img src="https://images.unsplash.com/photo-1493663284031-b7e3a4d0c25b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Планировка" class="img-fluid rounded">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Details -->
-  <section class="project-details-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h2 class="section-title">О проекте</h2>
-
-          <div class="project-description">
-            <p class="lead">ЖК "Комфорт Парк" - это жилой комплекс с большой парковой зоной и современными детскими площадками. Проект создан для комфортной жизни всей семьи в зеленой зоне.</p>
-
-            <p>Комплекс состоит из четырех 13-этажных корпусов с подземной парковкой. Все квартиры сдаются с качественной отделкой, что позволяет сразу заселиться в готовое жилье.</p>
-
-            <h4>Особенности проекта:</h4>
-            <ul class="project-features-detailed">
-              <li><i class="fas fa-check text-success"></i> Большая парковая зона</li>
-              <li><i class="fas fa-check text-success"></i> Современные детские площадки</li>
-              <li><i class="fas fa-check text-success"></i> Качественная отделка квартир</li>
-              <li><i class="fas fa-check text-success"></i> Удобные планировки с учетом современных требований</li>
-              <li><i class="fas fa-check text-success"></i> Развитая инфраструктура в районе</li>
-              <li><i class="fas fa-check text-success"></i> Надежный застройщик с многолетним опытом</li>
-            </ul>
-          </div>
-
-          <!-- Floor Plans -->
-          <div class="floor-plans">
-            <h3>Планировки квартир</h3>
-            <div class="row g-4">
-              <div class="col-md-4">
-                <div class="plan-card">
-                  <h5>1-комнатная</h5>
-                  <p class="plan-area">от 40 м²</p>
-                  <p class="plan-price">от 2 500 BYN/м²</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="plan-card">
-                  <h5>2-комнатная</h5>
-                  <p class="plan-area">от 60 м²</p>
-                  <p class="plan-price">от 2 600 BYN/м²</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="plan-card">
-                  <h5>3-комнатная</h5>
-                  <p class="plan-area">от 80 м²</p>
-                  <p class="plan-price">от 2 700 BYN/м²</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <!-- Project Info Sidebar -->
-          <div class="project-info-sidebar">
-            <h4>Характеристики</h4>
-            <div class="info-list">
-              <div class="info-item">
-                <span class="label">Адрес:</span>
-                <span class="value">г. Минск, ул. Комфортная, 18</span>
-              </div>
-              <div class="info-item">
-                <span class="label">Статус:</span>
-                <span class="value">Строится</span>
-              </div>
-              <div class="info-item">
-                <span class="label">Срок сдачи:</span>
-                <span class="value">2025</span>
-              </div>
-              <div class="info-item">
-                <span class="label">Этажность:</span>
-                <span class="value">13 этажей</span>
-              </div>
-              <div class="info-item">
-                <span class="label">Количество квартир:</span>
-                <span class="value">260</span>
-              </div>
-              <div class="info-item">
-                <span class="label">Парковка:</span>
-                <span class="value">Подземная + наземная</span>
-              </div>
-            </div>
-
-            <div class="mt-4">
-              <h5>Инфраструктура</h5>
-              <div class="infrastructure-list">
-                <span class="infrastructure-item"><i class="fas fa-shopping-cart"></i> Супермаркет - 300м</span>
-                <span class="infrastructure-item"><i class="fas fa-subway"></i> Метро - 600м</span>
-                <span class="infrastructure-item"><i class="fas fa-school"></i> Школа - 400м</span>
-                <span class="infrastructure-item"><i class="fas fa-hospital"></i> Поликлиника - 500м</span>
-                <span class="infrastructure-item"><i class="fas fa-bus"></i> Остановка - 150м</span>
-                <span class="infrastructure-item"><i class="fas fa-tree"></i> Парк - 50м</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
