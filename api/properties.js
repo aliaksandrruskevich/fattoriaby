@@ -2,6 +2,61 @@ const https = require('https');
 const xml2js = require('xml2js');
 const { insertProperty, getActiveProperties, archiveMissingProperties, getAllUnids } = require('../db');
 
+// Function to generate user-friendly titles based on object type
+function generatePropertyTitle(objectType, location = '') {
+  const typeMappings = {
+    // Houses and cottages
+    'дом': 'Продается дом',
+    'house': 'Продается дом',
+    'дом/home': 'Продается дом',
+    'коттедж': 'Продается коттедж',
+    'cottage': 'Продается коттедж',
+    'дача': 'Продается дача',
+    'dacha': 'Продается дача',
+
+    // Apartments
+    'квартира': 'Продается квартира',
+    'apartment': 'Продается квартира',
+    'flat': 'Продается квартира',
+    'квартира/flat': 'Продается квартира',
+
+    // Commercial properties
+    'коммерческая недвижимость': 'Продается коммерческая недвижимость',
+    'commercial': 'Продается коммерческая недвижимость',
+    'офис': 'Продается офис',
+    'office': 'Продается офис',
+    'магазин': 'Продается магазин',
+    'shop': 'Продается магазин',
+    'склад': 'Продается склад',
+    'warehouse': 'Продается склад',
+
+    // Land plots
+    'участок': 'Продается земельный участок',
+    'land': 'Продается земельный участок',
+    'земельный участок': 'Продается земельный участок',
+    'plot': 'Продается земельный участок',
+
+    // Other types
+    'гараж': 'Продается гараж',
+    'garage': 'Продается гараж',
+    'парковка': 'Продается парковка',
+    'parking': 'Продается парковка'
+  };
+
+  // Normalize the object type to lowercase for matching
+  const normalizedType = (objectType || '').toLowerCase().trim();
+
+  // Find matching title or use default
+  for (const [key, title] of Object.entries(typeMappings)) {
+    if (normalizedType.includes(key)) {
+      return title;
+    }
+  }
+
+  // Default fallback
+  return 'Продается недвижимость';
+}
+
 const API_URL = 'https://realt.by/bff/proxy/export/api/export/token/e68b296c864d8a9';
 
 async function fetchAndSyncProperties() {
@@ -111,10 +166,13 @@ function parseProperties(xmlData) {
     // Operation type
     const operation = terms === 'ч' ? 'продажа' : 'аренда';
 
+    // Generate user-friendly title
+    const userFriendlyTitle = generatePropertyTitle(record.object_type_expanded, location);
+
     // Create property object for DB
     const property = {
       unid: unid,
-      title: `${record.object_type_expanded || 'Объект'} #${record.code || 'N/A'}`,
+      title: userFriendlyTitle,
       location: location,
       price: price,
       currency: record.price_currency_expanded || 'USD',
