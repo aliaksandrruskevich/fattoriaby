@@ -2,10 +2,10 @@
   "name": "fattoria",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server-with-api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server-with-api.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/aliaksandrruskevich/an-fattoriy#readme",
   "dependencies": {
     "basic-auth": "^2.0.1",
+    "sqlite3": "^5.1.7",
     "xml2js": "^0.6.2"
   }
 }

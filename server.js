@@ -65,6 +65,9 @@ const server = http.createServer((req, res) => {
       case '.php':
         contentType = 'text/html'; // PHP will be handled by hosting, but for local Node, serve as text
         break;
+      case '.ico':
+        contentType = 'image/x-icon';
+        break;
       // Add more as needed
     }
 

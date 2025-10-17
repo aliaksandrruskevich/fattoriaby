@@ -695,24 +695,30 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
     });
 
     // Загружаем объекты из API
-    fetch('/api/properties.php?limit=10')
+    fetch('/api/properties.php?limit=50')
       .then(response => response.json())
       .then(data => {
         data.forEach((property, index) => {
-          // Генерируем случайные координаты вокруг Минска для демонстрации
-          var lat = 53.9045 + (Math.random() - 0.5) * 0.1;
-          var lng = 27.5615 + (Math.random() - 0.5) * 0.1;
+          if (property.lat && property.lng) {
+            // Используем реальные координаты из базы данных
+            var lat = property.lat;
+            var lng = property.lng;
+          } else {
+            // Генерируем случайные координаты вокруг Минска для демонстрации
+            var lat = 53.9045 + (Math.random() - 0.5) * 0.1;
+            var lng = 27.5615 + (Math.random() - 0.5) * 0.1;
+          }
 
           var placemark = new ymaps.Placemark([lat, lng], {
             hintContent: property.title,
             balloonContent: `
               <div>
                 <h5>${property.title}</h5>
-                <p><strong>Цена:</strong> ${property.price} €</p>
+                <p><strong>Цена:</strong> ${property.price} ${property.currency}</p>
                 <p><strong>Местоположение:</strong> ${property.location}</p>
                 <p><strong>Тип:</strong> ${property.type}</p>
-                <p>${property.description}</p>
-                <button class="btn btn-warning btn-sm" onclick="showInterest('${property.title}')">Заказать звонок</button>
+                <p>${property.description.substring(0, 100)}...</p>
+                <button class="btn btn-warning btn-sm" onclick="window.location.href='/object/${property.unid}'">Подробнее</button>
               </div>
             `
           });

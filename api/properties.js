@@ -1,33 +1,35 @@
 const https = require('https');
 const xml2js = require('xml2js');
+const { insertProperty, getActiveProperties, archiveMissingProperties, getAllUnids } = require('../db');
 
 const API_URL = 'https://realt.by/bff/proxy/export/api/export/token/e68b296c864d8a9';
 
-function fetchProperties(limit = 20) {
+async function fetchAndSyncProperties() {
   return new Promise((resolve, reject) => {
-    https.get(API_URL, (res) => {
+    https.get(API_URL, async (res) => {
       let data = '';
 
       res.on('data', (chunk) => {
         data += chunk;
       });
 
-      res.on('end', () => {
+      res.on('end', async () => {
         if (res.statusCode !== 200) {
           reject(new Error(`API returned status ${res.statusCode}`));
           return;
         }
 
         // Parse XML to JSON
-        xml2js.parseString(data, { explicitArray: false, ignoreAttrs: false }, (err, result) => {
+        xml2js.parseString(data, { explicitArray: false, ignoreAttrs: false }, async (err, result) => {
           if (err) {
             reject(err);
             return;
           }
 
           try {
-            const properties = parseProperties(result, limit);
-            resolve(properties);
+            const parsedProperties = parseProperties(result);
+            await syncProperties(parsedProperties);
+            resolve();
           } catch (parseErr) {
             reject(parseErr);
           }
@@ -39,13 +41,18 @@ function fetchProperties(limit = 20) {
   });
 }
 
-function parseProperties(xmlData, limit) {
-  const records = xmlData.uedb.records.record;
+function fetchProperties(limit = 12, offset = 0, filters = {}) {
+  return getActiveProperties(limit, offset, filters);
+}
+
+function parseProperties(xmlData) {
+  const records = Array.isArray(xmlData.uedb.records.record) ? xmlData.uedb.records.record : [xmlData.uedb.records.record];
   const properties = [];
 
   for (const record of records) {
-    if (properties.length >= limit) break;
-
+    // Extract unid from attributes
+    const unid = record.$ && record.$.unid ? record.$.unid : null;
+    
     // Apply filters
     const archive = parseInt(record.archive) || 0;
     const terms = record.terms || '';
@@ -93,21 +100,62 @@ function parseProperties(xmlData, limit) {
     // Clean description
     const description = record.description ? record.description.replace(/<[^>]*>/g, '') : '';
 
-    // Create property object
+    // Extract coordinates
+    const lat = record.position_y ? parseFloat(record.position_y) : null;
+    const lng = record.position_x ? parseFloat(record.position_x) : null;
+
+    // Extract contact info
+    const contact_name = record.contact_name || record.responsible_first_name + ' ' + record.responsible_last_name;
+    const contact_phone = record.contact_phone_1 ? `${record.contact_phone_code_1}${record.contact_phone_1}` : '';
+
+    // Operation type
+    const operation = terms === 'ч' ? 'продажа' : 'аренда';
+
+    // Create property object for DB
     const property = {
+      unid: unid,
       title: `${record.object_type_expanded || 'Объект'} #${record.code || 'N/A'}`,
       location: location,
       price: price,
+      currency: record.price_currency_expanded || 'USD',
       type: record.object_type_expanded || 'Не указан',
+      operation: operation,
       description: description,
       features: features,
-      photos: photos
+      photos: photos,
+      lat: lat,
+      lng: lng,
+      contact_name: contact_name,
+      contact_phone: contact_phone,
+      last_update: record.last_modification || new Date().toISOString(),
+      archive: 0
     };
 
     properties.push(property);
   }
 
   return properties;
+}
+
+async function syncProperties(parsedProperties) {
+  const currentUnids = parsedProperties.map(p => p.unid);
+
+  // Insert or update properties
+  for (const property of parsedProperties) {
+    try {
+      await insertProperty(property);
+    } catch (err) {
+      console.error('Error inserting property:', err);
+    }
+  }
+
+  // Archive properties not in current feed
+  try {
+    const archivedCount = await archiveMissingProperties(currentUnids);
+    console.log(`Archived ${archivedCount} properties`);
+  } catch (err) {
+    console.error('Error archiving properties:', err);
+  }
 }
 
 // Mock data fallback
@@ -134,4 +182,4 @@ function getMockData() {
   ];
 }
 
-module.exports = { fetchProperties, getMockData };
+module.exports = { fetchProperties, fetchAndSyncProperties, getMockData };

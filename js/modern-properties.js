@@ -20,7 +20,25 @@ class ModernProperties {
     try {
       this.showLoadingState();
 
-      const response = await fetch('/api/properties.php?limit=50');
+      // Get URL parameters for filters
+      const urlParams = new URLSearchParams(window.location.search);
+      const filters = {
+        operation: urlParams.get('operation'),
+        type: urlParams.get('type'),
+        rooms: urlParams.get('rooms'),
+        price_min: urlParams.get('price_min'),
+        price_max: urlParams.get('price_max'),
+        sort: urlParams.get('sort')
+      };
+
+      // Build query string
+      const queryParams = new URLSearchParams();
+      Object.keys(filters).forEach(key => {
+        if (filters[key]) queryParams.set(key, filters[key]);
+      });
+      queryParams.set('limit', '50');
+
+      const response = await fetch(`/api/properties.php?${queryParams.toString()}`);
       const data = await response.json();
 
       this.properties = data;
@@ -83,15 +101,15 @@ class ModernProperties {
   createPropertyCard(property) {
     const card = document.createElement('div');
     card.className = 'property-card modern-card';
-    card.dataset.propertyId = property.id || Math.random().toString(36).substr(2, 9);
+    card.dataset.propertyId = property.unid || property.id || Math.random().toString(36).substr(2, 9);
 
     const mainPhoto = property.photos && property.photos[0] ? property.photos[0] : 'https://via.placeholder.com/400x300?text=Нет+фото';
 
-    // Determine badge type based on property type
+    // Determine badge type based on operation
     let badgeClass = 'badge-primary';
     let badgeText = 'Продажа';
 
-    if (property.type && property.type.toLowerCase().includes('аренда')) {
+    if (property.operation && property.operation.toLowerCase().includes('аренда')) {
       badgeClass = 'badge-success';
       badgeText = 'Аренда';
     }
@@ -116,7 +134,7 @@ class ModernProperties {
         <p class="property-location">
           <i class="fas fa-map-marker-alt"></i> ${property.location || 'Минск'}
         </p>
-        <div class="property-price">${this.formatPrice(property.price)}</div>
+        <div class="property-price">${this.formatPrice(property.price, property.currency)}</div>
         <div class="property-features">
           ${this.renderFeatures(property.features)}
         </div>
@@ -141,14 +159,22 @@ class ModernProperties {
     return card;
   }
 
-  formatPrice(price) {
+  formatPrice(price, currency = 'USD') {
     if (!price) return 'Цена по запросу';
 
     if (typeof price === 'string') {
       return price;
     }
 
-    return new Intl.NumberFormat('ru-RU').format(price) + ' $';
+    const currencySymbols = {
+      'USD': '$',
+      'EUR': '€',
+      'BYN': 'руб',
+      'RUB': 'р'
+    };
+
+    const symbol = currencySymbols[currency] || '$';
+    return new Intl.NumberFormat('ru-RU').format(price) + ' ' + symbol;
   }
 
   renderFeatures(features) {
