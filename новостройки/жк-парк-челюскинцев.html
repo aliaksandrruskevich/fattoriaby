@@ -22,10 +22,27 @@
   <!-- Header and navigation from index.html -->
   <div id="header-placeholder"></div>
 
+  <!-- Contact Form Fixed -->
+  <div class="contact-card" style="position: fixed; top: 100px; right: 20px; z-index: 1000; width: 300px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h5>Получить консультацию</h5>
+    <form class="contact-form">
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Ваше имя" required>
+      </div>
+      <div class="mb-3">
+        <input type="tel" class="form-control" placeholder="Телефон" required>
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Email">
+      </div>
+      <button type="submit" class="btn btn-warning w-100">Получить консультацию</button>
+    </form>
+  </div>
+
   <!-- Hero Section -->
   <section class="project-hero">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-start">
         <div class="col-lg-8">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -70,30 +87,6 @@
               </div>
             </div>
           </div>
-
-          <div class="project-price">
-            <h3 class="text-warning fw-bold">от 1 500 BYN/м²</h3>
-            <p class="text-muted">Цена за квадратный метр</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="contact-card">
-            <h5>Получить консультацию</h5>
-            <form class="contact-form">
-              <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Ваше имя" required>
-              </div>
-              <div class="mb-3">
-                <input type="tel" class="form-control" placeholder="Телефон" required>
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Email">
-              </div>
-              <button type="submit" class="btn btn-warning w-100">Получить консультацию</button>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -105,16 +98,16 @@
       <div class="row g-3">
         <div class="col-md-8">
           <div class="main-image">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" alt="ЖК Парк Челюскинцев" class="img-fluid rounded">
+            <img src="../фото/пч1.png" alt="ЖК Парк Челюскинцев" class="img-fluid rounded">
           </div>
         </div>
         <div class="col-md-4">
           <div class="row g-3">
             <div class="col-12">
-              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Современный фасад" class="img-fluid rounded">
+              <img src="../фото/пч1.png" alt="Современный фасад" class="img-fluid rounded">
             </div>
             <div class="col-12">
-              <img src="https://images.unsplash.com/photo-1493663284031-b7e3a4d0c25b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Планировка" class="img-fluid rounded">
+              <img src="../фото/пч1.png" alt="Планировка" class="img-fluid rounded">
             </div>
           </div>
         </div>
@@ -130,19 +123,35 @@
           <h2 class="section-title">О проекте</h2>
 
           <div class="project-description">
-            <p class="lead">ЖК "Парк Челюскинцев" - это премиальный жилой комплекс с консьерж-сервисом и высоким уровнем комфорта. Проект создан для тех, кто ценит качество и статус.</p>
+            <h3>ЖК «Парк Челюскинцев»: Флагман комфорт-класса в экологичном районе Минска</h3>
+          
+            <p>Жилой комплекс «Парк Челюскинцев» — это масштабный градостроительный проект, переопределяющий стандарты комфортной жизни в столице. Он гармонично объединяет в себе все преимущества динамичной городской инфраструктуры и уединенности зеленых зон, создавая уникальную среду для жизни, вдохновения и развития семей.</p>
 
-            <p>Комплекс состоит из двух 18-этажных башен с подземной парковкой и консьерж-сервисом. Все квартиры сдаются с качественной отделкой, что позволяет сразу заселиться в готовое жилье.</p>
+            <h4>1. Идеальная локация: Динамика города и гармония природы</h4>
+            <p>Ключевым преимуществом комплекса является его беспрецедентное расположение.</p>
+            <p><strong>Экологический оазис:</strong> ЖК граничит с одним из самых любимых парков города — Парком имени Челюскинцев, а также находится в непосредственной близости от Ботанического сада. Это гарантирует чистый воздух, живописные виды из окон и бесконечные возможности для активного и спокойного отдыха прямо у порога дома.</p>
+            <p><strong>Транспортный хаб:</strong> Уникальная ситуация, когда в пешей доступности находятся сразу две станции метрополитена — «Парк Челюскинцев» и «Московская». Это обеспечивает молниеносную связность со всеми районами Минска, деловыми центрами и транспортными узлами.</p>
 
-            <h4>Особенности проекта:</h4>
-            <ul class="project-features-detailed">
-              <li><i class="fas fa-check text-success"></i> Премиальный уровень комфорта</li>
-              <li><i class="fas fa-check text-success"></i> Круглосуточный консьерж-сервис</li>
-              <li><i class="fas fa-check text-success"></i> Качественная отделка квартир</li>
-              <li><i class="fas fa-check text-success"></i> Удобные планировки с учетом современных требований</li>
-              <li><i class="fas fa-check text-success"></i> Развитая инфраструктура в районе</li>
-              <li><i class="fas fa-check text-success"></i> Надежный застройщик с многолетним опытом</li>
-            </ul>
+            <h4>2. Архитектура и благоустройство: Продуманная до мелочей среда</h4>
+            <p>Комплекс формирует собственный, эстетически завершенный микрорайон.</p>
+            <p><strong>Современная эстетика:</strong> Разновысотные жилые корпуса с панорамным остеклением, лаконичными фасадами и продуманными цветовыми решениями создают современный и респектабельный архитектурный облик.</p>
+            <p><strong>Безопасное и комфортное пространство:</strong> Территория комплекса — это закрытое, охраняемое пространство с продуманным зонированием: детские игровые площадки, спортивные зоны для разных возрастов и зоны отдыха для жителей. Приватность и безопасность являются приоритетами.</p>
+
+            <h4>3. Инфраструктура для полноценной жизни</h4>
+            <p>«Парк Челюскинцев» — это готовый мир, где есть всё необходимое.</p>
+            <p><strong>Внутренняя инфраструктура:</strong> На территории комплекса расположен современный детский сад, что решает один из ключевых вопросов для семей с детьми.</p>
+            <p><strong>Внешняя развитая среда:</strong> В шаговой доступности находятся общеобразовательные школы, гимназии, поликлиники, фитнес-центры и крупнейший торгово-развлекательный комплекс «Dana Mall». Ежедневные потребности и досуг жителей полностью удовлетворены.</p>
+
+            <h4>4. Жилье нового формата: Свобода реализации</h4>
+            <p>Квартиры в ЖК спроектированы с фокусом на комфорт и гибкость.</p>
+            <p><strong>Продуманные планировки:</strong> От уютных студий до просторных многокомнатных апартаментов. Минимум несущих стен предоставляет будущим владельцам свободу для планирования пространства под свои нужды.</p>
+            <p><strong>Качество деталей:</strong> Высокие потолки (до 3 метров на последних этажах), панорамные окна, наполняющие квартиры светом, и качественная чистовая отделка — все это формирует ощущение настоящего дома премиум-класса.</p>
+
+            <h4>5. Управление и технологии</h4>
+            <p>Комплекс оснащен современными инженерными системами и предлагает решения для комфортной повседневности, включая организованные парковочные пространства и системы безопасности.</p>
+
+            <h4>Заключение</h4>
+            <p>ЖК «Парк Челюскинцев» — это не просто недвижимость. Это осознанный выбор в пользу сбалансированного образа жизни, где энергия мегаполиса сочетается с гармонией природы, а современная архитектура служит фундаментом для уютного и безопасного дома. Это инвестиция в качество жизни и свое будущее.</p>
           </div>
 
           <!-- Floor Plans -->
@@ -153,28 +162,28 @@
                 <div class="plan-card">
                   <h5>1-комнатная</h5>
                   <p class="plan-area">от 45 м²</p>
-                  <p class="plan-price">от 1 500 BYN/м²</p>
+        
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="plan-card">
                   <h5>2-комнатная</h5>
                   <p class="plan-area">от 65 м²</p>
-                  <p class="plan-price">от 1 600 BYN/м²</p>
+             
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="plan-card">
                   <h5>3-комнатная</h5>
                   <p class="plan-area">от 85 м²</p>
-                  <p class="plan-price">от 1 700 BYN/м²</p>
+           
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="plan-card">
                   <h5>4-комнатная</h5>
                   <p class="plan-area">от 105 м²</p>
-                  <p class="plan-price">от 1 800 BYN/м²</p>
+          
                 </div>
               </div>
             </div>
@@ -188,7 +197,7 @@
             <div class="info-list">
               <div class="info-item">
                 <span class="label">Адрес:</span>
-                <span class="value">г. Минск, пр. Челюскинцев, 5</span>
+                <span class="value">г. Минск, Макаенка </span>
               </div>
               <div class="info-item">
                 <span class="label">Статус:</span>
@@ -198,14 +207,7 @@
                 <span class="label">Срок сдачи:</span>
                 <span class="value">Сдан</span>
               </div>
-              <div class="info-item">
-                <span class="label">Этажность:</span>
-                <span class="value">18 этажей</span>
-              </div>
-              <div class="info-item">
-                <span class="label">Количество квартир:</span>
-                <span class="value">280</span>
-              </div>
+             
               <div class="info-item">
                 <span class="label">Парковка:</span>
                 <span class="value">Подземная + наземная</span>
@@ -213,15 +215,7 @@
             </div>
 
             <div class="mt-4">
-              <h5>Инфраструктура</h5>
-              <div class="infrastructure-list">
-                <span class="infrastructure-item"><i class="fas fa-shopping-cart"></i> ТЦ - 100м</span>
-                <span class="infrastructure-item"><i class="fas fa-subway"></i> Метро - 300м</span>
-                <span class="infrastructure-item"><i class="fas fa-school"></i> Школа - 200м</span>
-                <span class="infrastructure-item"><i class="fas fa-hospital"></i> Поликлиника - 400м</span>
-                <span class="infrastructure-item"><i class="fas fa-bus"></i> Остановка - 50м</span>
-                <span class="infrastructure-item"><i class="fas fa-tree"></i> Парк - 150м</span>
-              </div>
+             
             </div>
           </div>
         </div>
